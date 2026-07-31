@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  
+  /* Color Palette - Premium Navy Blue & Elegant Beige */
+  --primary: #0F1E2D;        /* Very Dark Navy Blue Swatch */
+  --primary-light: #1D3144;  /* Lighter Blue */
+  --primary-dark: #08111B;   /* Extremely Dark Blue */
+  --accent: #D4B28C;         /* Premium Warm Beige/Gold */
+  --accent-hover: #C5A076;   /* Darker Beige */
+  --accent-light: #FAF6F0;   /* Light Cream/Beige Background */
+  --background: #FFFFFF;     /* Pure White */
+  --card-bg: #FFFFFF;
+  --text-dark: #0F1A24;
+  --text-muted: #526D82;
+  --text-light: #FFFFFF;
+  --border: #E2E8F0;
+  
+  --shadow-sm: 0 1px 2px 0 rgb(30 62 98 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(30 62 98 / 0.08), 0 2px 4px -2px rgb(30 62 98 / 0.08);
+  --shadow-lg: 0 10px 15px -3px rgb(30 62 98 / 0.1), 0 4px 6px -4px rgb(30 62 98 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(30 62 98 / 0.12), 0 8px 10px -6px rgb(30 62 98 / 0.12);
+  
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--background);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Button Reset & Common Styles */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  transition: var(--transition-fast);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--text-light);
+  padding: 12px 28px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  border: 1px solid var(--primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  color: var(--primary);
+  padding: 12px 28px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.5px;
+}
+
+.btn-accent:hover {
+  background-color: var(--accent-hover);
+  color: var(--text-light);
+  border-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+  border: 1px solid var(--border);
+  color: var(--text-dark);
+  padding: 12px 28px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  background-color: var(--primary);
+  color: var(--text-light);
+}
+
+/* Overlay & Glassmorphism styles */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-normal);
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Animations */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

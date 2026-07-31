@@ -1,0 +1,115 @@
+.b2b-section {
+  background-color: #F8FAFC; /* Soft slate gray-blue tint background to match the mockup style */
+  padding: 60px 24px;
+  margin: 30px auto;
+  max-width: 1280px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.b2b-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.b2b-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-left: 0;
+}
+
+.b2b-subtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-hover); /* Elegant gold/rose subtitle */
+  margin-bottom: 16px;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+
+.b2b-title {
+  font-family: var(--font-body);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--primary); /* Dark primary color sleepnest text */
+  margin-bottom: 12px;
+  line-height: 1.15;
+}
+
+.b2b-description {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.b2b-btn {
+  background-color: var(--primary) !important;
+  color: var(--text-light) !important;
+  border-radius: 30px !important; /* Rounded pill bulk order button */
+  padding: 14px 36px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid var(--primary) !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+.b2b-btn:hover {
+  background-color: transparent !important;
+  color: var(--primary) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
+}
+
+/* Illustration spacing and size styling */
+.b2b-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.b2b-illustration-img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  mix-blend-mode: multiply; /* Blends light image background with section tint background */
+}
+
+/* Responsiveness */
+@media (max-width: 991px) {
+  .b2b-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .b2b-content {
+    padding-left: 0;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .b2b-title {
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .b2b-section {
+    padding: 40px 16px;
+    margin: 40px 16px;
+  }
+  
+  .b2b-title {
+    font-size: 2rem;
+  }
+}

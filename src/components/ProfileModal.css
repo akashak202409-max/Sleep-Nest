@@ -1,0 +1,238 @@
+.profile-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(8px);
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.profile-modal-container {
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: 90%;
+  max-width: 440px;
+  position: relative;
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.profile-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: var(--text-muted);
+  padding: 6px;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.profile-close-btn:hover {
+  background-color: var(--border);
+  color: var(--primary);
+}
+
+/* Logged In Content */
+.profile-content {
+  padding: 32px 24px;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.profile-avatar {
+  width: 64px;
+  height: 64px;
+  background-color: var(--accent-light);
+  border: 1px solid var(--accent);
+  color: var(--accent-hover);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.profile-header h3 {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.profile-header p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.badge-member {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background-color: var(--primary);
+  color: var(--accent);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--accent);
+  letter-spacing: 0.5px;
+}
+
+.profile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.menu-item-premium {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.menu-item-premium:hover {
+  border-color: var(--accent);
+  background-color: var(--accent-light);
+}
+
+.menu-item-premium svg {
+  color: var(--accent-hover);
+}
+
+.menu-text {
+  text-align: left;
+  flex-grow: 1;
+}
+
+.menu-text h4 {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 2px;
+}
+
+.menu-text p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.count-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background-color: var(--border);
+  color: var(--primary);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  color: #EF4444;
+  border: 1px solid #FEE2E2;
+  background-color: #FEF2F2;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.logout-btn:hover {
+  background-color: #FEE2E2;
+}
+
+/* Login Form Styles */
+.profile-login-form {
+  padding: 40px 32px;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.login-header h3 {
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+  color: var(--primary);
+}
+
+.login-header p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--primary);
+  transition: var(--transition-fast);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.25);
+}
+
+.login-submit-btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.register-text {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 20px;
+  text-align: center;
+}
+
+.register-text span {
+  color: var(--accent-hover);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.register-text span:hover {
+  text-decoration: underline;
+}
