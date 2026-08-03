@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import { Star, Heart } from 'lucide-react';
+import {
+  bambooProtector,
+  cottonProtector,
+  quiltedProtector,
+  tencelProtector
+} from '../assets/images';
 import './ProtectorsPage.css';
 import SEOContent from './SEOContent';
 
@@ -17,7 +23,7 @@ const PROTECTORS_CATALOG = [
     sizes: ["Single", "Double", "Queen", "King"],
     sizeMultipliers: { "Single": 0.8, "Double": 0.95, "Queen": 1.0, "King": 1.2 },
     features: ["100% Waterproof", "Cooling Bamboo Viscose", "Deep Pocket elastic skirt"],
-    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80"
+    image: bambooProtector
   },
   {
     id: 302,
@@ -32,7 +38,7 @@ const PROTECTORS_CATALOG = [
     sizes: ["Single", "Double", "Queen", "King"],
     sizeMultipliers: { "Single": 0.8, "Double": 0.95, "Queen": 1.0, "King": 1.2 },
     features: ["GOTS Certified Cotton", "Hypoallergenic barrier", "Breathable knit design"],
-    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80"
+    image: cottonProtector
   },
   {
     id: 303,
@@ -47,7 +53,7 @@ const PROTECTORS_CATALOG = [
     sizes: ["Single", "Double", "Queen", "King"],
     sizeMultipliers: { "Single": 0.8, "Double": 0.95, "Queen": 1.0, "King": 1.2 },
     features: ["Quilted plush layer", "Snug fit elastic band", "Machine washable"],
-    image: "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80"
+    image: quiltedProtector
   },
   {
     id: 304,
@@ -62,7 +68,7 @@ const PROTECTORS_CATALOG = [
     sizes: ["Single", "Double", "Queen", "King"],
     sizeMultipliers: { "Single": 0.8, "Double": 0.95, "Queen": 1.0, "King": 1.2 },
     features: ["Eucalyptus-derived Tencel", "Whisper-quiet back film", "Moisture wicking"],
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80"
+    image: tencelProtector
   }
 ];
 

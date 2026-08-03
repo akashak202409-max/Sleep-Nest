@@ -17,6 +17,24 @@ import ProductDetailPage from './components/ProductDetailPage';
 import PaymentPage from './components/PaymentPage';
 import { Sparkles, ArrowRight, ShieldCheck, RefreshCw, Truck, Flame } from 'lucide-react';
 import logo from './assets/logo.png';
+import {
+  activeBounce,
+  coolingGel,
+  dualComfort,
+  ecoCoir,
+  hybridLuxe,
+  latexPillow,
+  latexSupport,
+  organicLatex,
+  smartgridElite,
+  cottonSheets,
+  satinSheets,
+  cottonFabric,
+  satinFabric,
+  luxuryMattressVideo2,
+  bambooProtector,
+  tencelProtector
+} from './assets/images';
 import './App.css';
 
 // Rich Mock Product Database
@@ -30,7 +48,7 @@ const PRODUCT_DATA = [
     rating: 4.9,
     reviews: 328,
     badge: "Best Seller",
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80"
+    image: hybridLuxe
   },
   {
     id: 2,
@@ -40,7 +58,7 @@ const PRODUCT_DATA = [
     rating: 4.8,
     reviews: 142,
     badge: "Eco-Friendly",
-    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80"
+    image: latexSupport
   },
   {
     id: 3,
@@ -51,7 +69,7 @@ const PRODUCT_DATA = [
     rating: 4.7,
     reviews: 94,
     badge: "Great Value",
-    image: "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80"
+    image: dualComfort
   },
   {
     id: 4,
@@ -61,7 +79,7 @@ const PRODUCT_DATA = [
     rating: 4.9,
     reviews: 412,
     badge: "Organic",
-    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80"
+    image: bambooProtector
   },
   {
     id: 5,
@@ -72,7 +90,7 @@ const PRODUCT_DATA = [
     rating: 4.6,
     reviews: 87,
     badge: "Cooling Tech",
-    image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=600&q=80"
+    image: tencelProtector
   },
   {
     id: 6,
@@ -82,7 +100,9 @@ const PRODUCT_DATA = [
     rating: 4.9,
     reviews: 219,
     badge: "Pure Luxury",
-    image: "https://images.unsplash.com/photo-1505693395321-883724634266?auto=format&fit=crop&w=600&q=80"
+    image: satinSheets,
+    fabricImage: satinFabric,
+    video: luxuryMattressVideo2
   },
   {
     id: 7,
@@ -93,7 +113,9 @@ const PRODUCT_DATA = [
     rating: 4.8,
     reviews: 154,
     badge: "1000 Thread Count",
-    image: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80"
+    image: cottonSheets,
+    fabricImage: cottonFabric,
+    video: luxuryMattressVideo2
   },
   {
     id: 8,
@@ -103,7 +125,7 @@ const PRODUCT_DATA = [
     rating: 4.8,
     reviews: 98,
     badge: "Warm & Cozy",
-    image: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80"
+    image: activeBounce
   },
   {
     id: 9,
@@ -114,7 +136,7 @@ const PRODUCT_DATA = [
     rating: 4.7,
     reviews: 63,
     badge: "Hypoallergenic",
-    image: "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80"
+    image: dualComfort
   },
   {
     id: 10,
@@ -124,7 +146,7 @@ const PRODUCT_DATA = [
     rating: 4.9,
     reviews: 580,
     badge: "Ergonomic Support",
-    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80"
+    image: coolingGel
   },
   {
     id: 11,
@@ -135,7 +157,7 @@ const PRODUCT_DATA = [
     rating: 4.7,
     reviews: 134,
     badge: "Adjustable Loft",
-    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80"
+    image: latexSupport
   }
 ];
 
@@ -195,7 +217,12 @@ function App() {
         onProfileClick={() => setIsProfileOpen(true)}
         onShopClick={scrollToShop}
         onCategoryClick={(cat) => {
-          setSelectedCategory(cat);
+          const categoryMap = {
+            "Bedsheets": "Bed Sheets",
+            "Protector": "Protectors",
+            "Comforter": "Comforters"
+          };
+          setSelectedCategory(categoryMap[cat] || cat);
           setSelectedProduct(null);
           setCheckoutMode(false);
           scrollToShop();
@@ -302,7 +329,7 @@ function App() {
                   <button className="btn-outline-dark-small" onClick={scrollToShop}>Shop Now</button>
                 </div>
                 <div className="promo-banner-split-image-wrapper">
-                  <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=400&q=80" alt="Ortho Mattress" />
+                  <img src={latexSupport} alt="Ortho Mattress" />
                 </div>
               </div>
               <div className="promo-banner-split-card">
@@ -313,7 +340,7 @@ function App() {
                   <button className="btn-outline-dark-small" onClick={scrollToShop}>Grab Offer</button>
                 </div>
                 <div className="promo-banner-split-image-wrapper">
-                  <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=400&q=80" alt="Memory Pillow" />
+                  <img src={coolingGel} alt="Memory Pillow" />
                 </div>
               </div>
             </div>

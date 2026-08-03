@@ -212,7 +212,14 @@ const Navbar = ({ cartCount, onCartClick, onProfileClick, onShopClick, onCategor
                 >
                   <a 
                     href={`#${item.toLowerCase().replace(' ', '-')}`} 
-                    className={`sub-navbar-link ${activeCategory === item ? 'active' : ''}`}
+                    className={`sub-navbar-link ${
+                      activeCategory === item || 
+                      (item === "Bedsheets" && activeCategory === "Bed Sheets") ||
+                      (item === "Protector" && activeCategory === "Protectors") ||
+                      (item === "Comforter" && activeCategory === "Comforters")
+                        ? 'active' 
+                        : ''
+                    }`}
                     onClick={(e) => {
                       e.preventDefault();
                       onCategoryClick(item);

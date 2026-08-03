@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import { Star, Heart } from 'lucide-react';
+import {
+  hybridLuxe,
+  dualComfort,
+  activeBounce,
+  coolingGel
+} from '../assets/images';
 import './ComfortersPage.css';
 import SEOContent from './SEOContent';
 
@@ -17,7 +23,7 @@ const COMFORTERS_CATALOG = [
     sizes: ["Single", "Double"],
     sizeMultipliers: { "Single": 0.75, "Double": 1.0 },
     features: ["Hypoallergenic hollow siliconized fill", "Box-stitched pattern", "Soft brushed microfiber"],
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80"
+    image: hybridLuxe
   },
   {
     id: 502,
@@ -32,7 +38,7 @@ const COMFORTERS_CATALOG = [
     sizes: ["Single", "Double"],
     sizeMultipliers: { "Single": 0.75, "Double": 1.0 },
     features: ["Corner tabs for duvet covers", "Breathable shell fabric", "Fluffy cloud fill"],
-    image: "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80"
+    image: dualComfort
   },
   {
     id: 503,
@@ -47,7 +53,7 @@ const COMFORTERS_CATALOG = [
     sizes: ["Single", "Double"],
     sizeMultipliers: { "Single": 0.75, "Double": 1.0 },
     features: ["Dual color reversible", "Thermal insulation tech", "Extremely cozy and light"],
-    image: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80"
+    image: activeBounce
   },
   {
     id: 504,
@@ -62,7 +68,7 @@ const COMFORTERS_CATALOG = [
     sizes: ["Single", "Double"],
     sizeMultipliers: { "Single": 0.75, "Double": 1.0 },
     features: ["100% Cotton flannel cover", "Ideal for AC rooms", "Breathable light weight"],
-    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80"
+    image: coolingGel
   }
 ];
 

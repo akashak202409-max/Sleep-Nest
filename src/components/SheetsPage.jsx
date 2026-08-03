@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
 import { Star, Heart } from 'lucide-react';
+import {
+  cottonSheets,
+  bambooSheets,
+  satinSheets,
+  microfiberSheets,
+  cottonFabric,
+  bambooFabric,
+  satinFabric,
+  microfiberFabric,
+  luxuryMattressVideo2
+} from '../assets/images';
 import './SheetsPage.css';
 import SEOContent from './SEOContent';
 
@@ -17,7 +28,9 @@ const SHEETS_CATALOG = [
     sizes: ["Single", "Double", "Queen", "King"],
     sizeMultipliers: { "Single": 0.8, "Double": 0.95, "Queen": 1.0, "King": 1.2 },
     features: ["300 Thread Count", "Soft sateen weave", "Includes 2 pillow covers"],
-    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80"
+    image: cottonSheets,
+    fabricImage: cottonFabric,
+    video: luxuryMattressVideo2
   },
   {
     id: 402,
@@ -32,7 +45,9 @@ const SHEETS_CATALOG = [
     sizes: ["Single", "Double", "Queen", "King"],
     sizeMultipliers: { "Single": 0.8, "Double": 0.95, "Queen": 1.0, "King": 1.2 },
     features: ["100% Organic Bamboo", "Naturally moisture-wicking", "Deep pocket fit"],
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80"
+    image: bambooSheets,
+    fabricImage: bambooFabric,
+    video: luxuryMattressVideo2
   },
   {
     id: 403,
@@ -47,7 +62,9 @@ const SHEETS_CATALOG = [
     sizes: ["Single", "Double", "Queen", "King"],
     sizeMultipliers: { "Single": 0.8, "Double": 0.95, "Queen": 1.0, "King": 1.2 },
     features: ["Glossy striped texture", "Wrinkle-resistant fabric", "Rich color fastness"],
-    image: "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80"
+    image: satinSheets,
+    fabricImage: satinFabric,
+    video: luxuryMattressVideo2
   },
   {
     id: 404,
@@ -62,7 +79,9 @@ const SHEETS_CATALOG = [
     sizes: ["Single", "Double", "Queen", "King"],
     sizeMultipliers: { "Single": 0.8, "Double": 0.95, "Queen": 1.0, "King": 1.2 },
     features: ["Super soft double brushed", "All-around snug elastic", "Fade resistant"],
-    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80"
+    image: microfiberSheets,
+    fabricImage: microfiberFabric,
+    video: luxuryMattressVideo2
   }
 ];
 

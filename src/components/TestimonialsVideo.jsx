@@ -1,5 +1,6 @@
 import React from 'react';
-import { Star, Play } from 'lucide-react';
+import { Star } from 'lucide-react';
+import { dualComfort, hybridLuxe, latexSupport } from '../assets/images';
 import './TestimonialsVideo.css';
 
 const TESTIMONIALS_DATA = [
@@ -8,7 +9,7 @@ const TESTIMONIALS_DATA = [
     name: "Aarav Sharma",
     location: "Mumbai",
     text: "The orthopaedic support completely cured my lower back pain. Waking up feels fresh again!",
-    imageUrl: "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80",
+    imageUrl: dualComfort,
     rating: 5
   },
   {
@@ -16,7 +17,7 @@ const TESTIMONIALS_DATA = [
     name: "Priya Patel",
     location: "Bengaluru",
     text: "Zero motion transfer is real! My partner tosses and turns but I don't feel a thing. Highly recommend.",
-    imageUrl: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80",
+    imageUrl: hybridLuxe,
     rating: 5
   },
   {
@@ -24,26 +25,20 @@ const TESTIMONIALS_DATA = [
     name: "Rohan Verma",
     location: "Delhi",
     text: "It feels like sleeping on a cloud, but with robust spine alignment. The cooling features are a lifesaver in Indian summers.",
-    imageUrl: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80",
+    imageUrl: latexSupport,
     rating: 5
   }
 ];
 
-const VideoCard = ({ testimonial }) => {
+const TestimonialCard = ({ testimonial }) => {
   return (
     <div className="video-card">
-      <div className="video-wrapper" onClick={() => alert(`Playing ${testimonial.name}'s video testimonial...`)}>
-        {/* Render a high-quality mattress image instead of a playing video element */}
+      <div className="video-wrapper">
         <img 
           src={testimonial.imageUrl}
           alt={`SleepNest Mattress preview by ${testimonial.name}`}
           className="testimonial-video"
         />
-        
-        {/* Play Icon Overlay (representing video preview) */}
-        <div className="video-overlay-btn">
-          <Play size={24} className="play-icon" />
-        </div>
       </div>
       
       <div className="video-card-content">
@@ -75,7 +70,10 @@ const TestimonialsVideo = () => {
 
         <div className="testimonials-video-grid">
           {TESTIMONIALS_DATA.map((t) => (
-            <VideoCard key={t.id} testimonial={t} />
+            <TestimonialCard 
+              key={t.id} 
+              testimonial={t} 
+            />
           ))}
         </div>
 

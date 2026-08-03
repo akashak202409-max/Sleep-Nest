@@ -494,14 +494,14 @@
   gap: 12px;
 }
 
-.bank-offer-card {
+.pdp-bank-offer-card {
   border: 1px dashed var(--border);
   border-radius: 6px;
   padding: 12px;
   background-color: #FFFFFF;
 }
 
-.bank-offer-card h4 {
+.pdp-bank-offer-card h4 {
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--accent-hover);
@@ -550,4 +550,78 @@
     grid-template-columns: 1fr;
     gap: 12px;
   }
+
+  .gallery-nav-arrow {
+    display: none;
+  }
 }
+
+/* Thumbnail Video and Main Display Video Styles */
+.thumb-video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumb-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumb-play-overlay {
+  position: absolute;
+  background-color: rgba(15, 23, 42, 0.6);
+  color: #fff;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.thumb-card:hover .thumb-play-overlay {
+  transform: scale(1.1);
+  background-color: var(--accent);
+  color: var(--primary);
+}
+
+.main-display-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background-color: #000;
+}
+
+@media (max-width: 480px) {
+  .vertical-thumbnails {
+    gap: 8px;
+  }
+  
+  .thumb-card {
+    width: 54px;
+    height: 54px;
+  }
+  
+  .thumb-play-overlay {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .thumb-play-overlay svg {
+    width: 8px;
+    height: 8px;
+  }
+
+  .main-image-container {
+    height: 280px;
+  }
+}
+

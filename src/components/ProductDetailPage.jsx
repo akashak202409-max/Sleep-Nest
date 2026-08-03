@@ -1,15 +1,49 @@
 import React, { useState, useEffect } from 'react';
-import { Star, Heart, Share2, MapPin, ShieldCheck, Truck, RefreshCw, HelpCircle, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Star, Heart, Share2, MapPin, ShieldCheck, Truck, RefreshCw, HelpCircle, ArrowLeft, ArrowRight, Play } from 'lucide-react';
+import { 
+  dualComfort, 
+  hybridLuxe, 
+  latexSupport, 
+  kingBedVideo,
+  cottonSheets,
+  bambooSheets,
+  satinSheets,
+  microfiberSheets,
+  bambooProtector,
+  cottonProtector,
+  quiltedProtector,
+  tencelProtector
+} from '../assets/images';
 import './ProductDetailPage.css';
 
 const ProductDetailPage = ({ product, onAddToCart, onBack }) => {
-  // Mock alternative images for gallery based on category
-  const alternateImages = [
-    product.image,
-    "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80"
-  ];
+  const isSheet = product.category === "Bed Sheets";
+  const sheetStyles = [cottonSheets, bambooSheets, satinSheets, microfiberSheets];
+  const altSheets = sheetStyles.filter(img => img !== product.image);
+
+  const isProtector = product.category === "Protectors";
+  const protectorStyles = [bambooProtector, cottonProtector, quiltedProtector, tencelProtector];
+  const altProtectors = protectorStyles.filter(img => img !== product.image);
+
+  // Mock alternative images for gallery based on category or product properties
+  const galleryItems = isSheet ? [
+    { type: 'image', url: product.image },
+    product.fabricImage ? { type: 'image', url: product.fabricImage } : null,
+    { type: 'image', url: altSheets[0] || satinSheets },
+    { type: 'image', url: altSheets[1] || bambooSheets },
+    { type: 'image', url: altSheets[2] || microfiberSheets }
+  ].filter(Boolean).slice(0, 5) : isProtector ? [
+    { type: 'image', url: product.image },
+    { type: 'image', url: altProtectors[0] || cottonProtector },
+    { type: 'image', url: altProtectors[1] || quiltedProtector },
+    { type: 'image', url: altProtectors[2] || tencelProtector }
+  ].filter(Boolean).slice(0, 5) : [
+    { type: 'image', url: product.image },
+    product.fabricImage ? { type: 'image', url: product.fabricImage } : null,
+    { type: 'image', url: dualComfort },
+    { type: 'image', url: hybridLuxe },
+    !product.fabricImage ? { type: 'image', url: latexSupport } : null
+  ].filter(Boolean).slice(0, 5);
 
   const [activeImgIdx, setActiveImgIdx] = useState(0);
   const [selectedSeries, setSelectedSeries] = useState("Essential");
@@ -98,31 +132,52 @@ const ProductDetailPage = ({ product, onAddToCart, onBack }) => {
           <div className="gallery-layout-row">
             {/* Vertical thumbnails */}
             <div className="vertical-thumbnails">
-              {alternateImages.map((img, idx) => (
+              {galleryItems.map((item, idx) => (
                 <div 
                   key={idx} 
                   className={`thumb-card ${activeImgIdx === idx ? 'active' : ''}`}
                   onClick={() => setActiveImgIdx(idx)}
                 >
-                  <img src={img} alt={`view-${idx}`} />
+                  {item.type === 'video' ? (
+                    <div className="thumb-video-wrapper">
+                      <video src={item.url} muted playsInline className="thumb-video" />
+                      <div className="thumb-play-overlay">
+                        <Play size={12} fill="currentColor" />
+                      </div>
+                    </div>
+                  ) : (
+                    <img src={item.url} alt={`view-${idx}`} />
+                  )}
                 </div>
               ))}
             </div>
 
             {/* Main view image */}
             <div className="main-image-container">
-              <img src={alternateImages[activeImgIdx]} alt={product.name} className="main-display-img" />
+              {galleryItems[activeImgIdx].type === 'video' ? (
+                <video 
+                  src={galleryItems[activeImgIdx].url} 
+                  className="main-display-video" 
+                  controls 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                />
+              ) : (
+                <img src={galleryItems[activeImgIdx].url} alt={product.name} className="main-display-img" />
+              )}
               
               {/* Arrow navigation inside image */}
               <button 
                 className="gallery-nav-arrow arrow-left" 
-                onClick={() => setActiveImgIdx(prev => (prev === 0 ? alternateImages.length - 1 : prev - 1))}
+                onClick={() => setActiveImgIdx(prev => (prev === 0 ? galleryItems.length - 1 : prev - 1))}
               >
                 &lt;
               </button>
               <button 
                 className="gallery-nav-arrow arrow-right" 
-                onClick={() => setActiveImgIdx(prev => (prev === alternateImages.length - 1 ? 0 : prev + 1))}
+                onClick={() => setActiveImgIdx(prev => (prev === galleryItems.length - 1 ? 0 : prev + 1))}
               >
                 &gt;
               </button>
@@ -305,7 +360,7 @@ const ProductDetailPage = ({ product, onAddToCart, onBack }) => {
                 { title: "UPI-Snapmint", details: `₹${Math.round(pricing.price / 3).toLocaleString('en-IN')}/month (3 EMI)`, sub: "No Cost EMI" },
                 { title: "UPI Offer", details: "Extra 2% cashbacks on instant checkout UPI payments", sub: "GPay / PhonePe" }
               ].map((b, idx) => (
-                <div key={idx} className="bank-offer-card">
+                <div key={idx} className="pdp-bank-offer-card">
                   <h4>{b.title}</h4>
                   <p className="offer-details-text">{b.details}</p>
                   <span className="offer-sub-label">{b.sub}</span>

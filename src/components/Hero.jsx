@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { hybridLuxe, coolingGel, ecoCoir } from '../assets/images';
 import './Hero.css';
 
 const Hero = ({ onShopClick }) => {
@@ -12,7 +13,7 @@ const Hero = ({ onShopClick }) => {
       offer: "UP TO 65% OFF",
       description: "Transform your rest with orthopedic support and plush comfort. Ethically crafted, scientifically backed.",
       btnText: "Shop Pay Day Deals",
-      img: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80",
+      img: hybridLuxe,
       tagNum: "65%",
       tagLbl: "OFF"
     },
@@ -23,7 +24,7 @@ const Hero = ({ onShopClick }) => {
       offer: "BUY 1 GET 1 FREE",
       description: "Adaptive gel technology contours perfectly to your spine. Sleep cooler, rest deeper, and wake up refreshed.",
       btnText: "Get Free Pillow",
-      img: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80",
+      img: coolingGel,
       tagNum: "BOGO",
       tagLbl: "ACTIVE"
     },
@@ -34,7 +35,7 @@ const Hero = ({ onShopClick }) => {
       offer: "FLAT 20% OFF",
       description: "Ethically-sourced organic cotton bed sheets. Pre-washed for cloud-like softness and high breathability.",
       btnText: "Shop Sheets",
-      img: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80",
+      img: ecoCoir,
       tagNum: "20%",
       tagLbl: "OFF"
     }

@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
 import { Star, Heart, ArrowRight } from 'lucide-react';
+import {
+  coolingGel,
+  latexPillow,
+  dualComfort,
+  latexSupport,
+  activeBounce
+} from '../assets/images';
 import './PillowsPage.css';
 import SEOContent from './SEOContent';
 
@@ -17,7 +24,7 @@ const PILLOWS_CATALOG = [
     sizes: ["12\"x12\"", "16\"x16\"", "20\"x20\""],
     sizeMultipliers: { "12\"x12\"": 0.8, "16\"x16\"": 1.0, "20\"x20\"": 1.3 },
     features: ["Hollow Fiber filling", "Sofa & Bed use", "Fluffy and resilient"],
-    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80"
+    image: coolingGel
   },
   {
     id: 202,
@@ -32,7 +39,7 @@ const PILLOWS_CATALOG = [
     sizes: ["Standard", "Queen", "King"],
     sizeMultipliers: { "Standard": 1.0, "Queen": 1.15, "King": 1.3 },
     features: ["Contouring support", "Relieves neck stiffness", "Premium outer cover"],
-    image: "https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=600&q=80"
+    image: latexPillow
   },
   {
     id: 203,
@@ -47,7 +54,7 @@ const PILLOWS_CATALOG = [
     sizes: ["Standard", "Queen"],
     sizeMultipliers: { "Standard": 1.0, "Queen": 1.2 },
     features: ["Natural Latex", "Anti-dustmite protection", "Ventilated design"],
-    image: "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80"
+    image: dualComfort
   },
   {
     id: 204,
@@ -62,7 +69,7 @@ const PILLOWS_CATALOG = [
     sizes: ["Standard", "King"],
     sizeMultipliers: { "Standard": 1.0, "King": 1.3 },
     features: ["Down-alternative fill", "Cotton shell cover", "Machine washable"],
-    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80"
+    image: latexSupport
   },
   {
     id: 205,
@@ -77,7 +84,7 @@ const PILLOWS_CATALOG = [
     sizes: ["Standard", "Queen", "King"],
     sizeMultipliers: { "Standard": 1.0, "Queen": 1.15, "King": 1.3 },
     features: ["Gel heat dissipation", "Ideal for hot sleepers", "Removable bamboo cover"],
-    image: "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80"
+    image: dualComfort
   },
   {
     id: 206,
@@ -92,7 +99,7 @@ const PILLOWS_CATALOG = [
     sizes: ["Standard", "Queen"],
     sizeMultipliers: { "Standard": 1.0, "Queen": 1.2 },
     features: ["Charcoal moisture absorption", "Anti-microbial shell", "Firm cervical rest"],
-    image: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80"
+    image: activeBounce
   }
 ];
 

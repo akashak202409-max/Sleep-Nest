@@ -1,14 +1,15 @@
 import React from 'react';
 import { Sparkles, Percent, ShieldCheck, Flame, ArrowRight } from 'lucide-react';
+import { latexSupport, ecoCoir, smartgridElite, dualComfort, coolingGel } from '../assets/images';
 import './ShowcaseGrid.css';
 
 const ShowcaseGrid = ({ onSelectCategory }) => {
   const categories = [
-    { name: "Mattresses", img: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=300&h=300&q=80" },
-    { name: "Bedsheets", img: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=300&h=300&q=80" },
-    { name: "Protector", img: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=300&h=300&q=80" },
-    { name: "Comforter", img: "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=300&h=300&q=80" },
-    { name: "Pillows", img: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=300&h=300&q=80" }
+    { name: "Mattresses", img: latexSupport },
+    { name: "Bedsheets", img: ecoCoir },
+    { name: "Protector", img: smartgridElite },
+    { name: "Comforter", img: dualComfort },
+    { name: "Pillows", img: coolingGel }
   ];
 
 
@@ -55,7 +56,7 @@ const ShowcaseGrid = ({ onSelectCategory }) => {
         <div className="spine-grid">
           <div className="spine-image-side">
             <img 
-              src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80" 
+              src={dualComfort} 
               alt="Ortho Spine Mattress Construction" 
               className="spine-main-img" 
             />

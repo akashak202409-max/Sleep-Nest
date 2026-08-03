@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
 import { Star, Shield, HelpCircle, ArrowRight, Heart } from 'lucide-react';
+import {
+  hybridLuxe,
+  dualComfort,
+  latexSupport,
+  activeBounce,
+  organicLatex,
+  smartgridElite
+} from '../assets/images';
 import './MattressPage.css';
 import SEOContent from './SEOContent';
 
@@ -17,7 +25,7 @@ const MATTRESSES_CATALOG = [
     basePrice: 8229,
     originalPrice: 10999,
     features: ["Pressure Relief", "Cooling Gel layer", "Zero Partner Disturbance"],
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80"
+    image: hybridLuxe
   },
   {
     id: 102,
@@ -31,7 +39,7 @@ const MATTRESSES_CATALOG = [
     basePrice: 12499,
     originalPrice: 15999,
     features: ["Spine Alignment", "Individually Encased Coils", "Edge Support"],
-    image: "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80"
+    image: dualComfort
   },
   {
     id: 103,
@@ -45,7 +53,7 @@ const MATTRESSES_CATALOG = [
     basePrice: 18249,
     originalPrice: 22999,
     features: ["100% Natural Latex", "Hypoallergenic", "Breathable Pincores"],
-    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80"
+    image: latexSupport
   },
   {
     id: 104,
@@ -59,7 +67,7 @@ const MATTRESSES_CATALOG = [
     basePrice: 6599,
     originalPrice: 8499,
     features: ["Dual-sided Usable", "Firm & Soft options", "Lightweight design"],
-    image: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80"
+    image: activeBounce
   },
   {
     id: 105,
@@ -73,7 +81,7 @@ const MATTRESSES_CATALOG = [
     basePrice: 22499,
     originalPrice: 28999,
     features: ["High Density Base", "Latex & Memory Foam Combo", "Airflow border mesh"],
-    image: "https://images.unsplash.com/photo-1505693395321-883724634266?auto=format&fit=crop&w=600&q=80"
+    image: organicLatex
   },
   {
     id: 106,
@@ -87,7 +95,7 @@ const MATTRESSES_CATALOG = [
     basePrice: 7499,
     originalPrice: 9499,
     features: ["Natural Coir Ventilation", "Reinforced back alignment", "Eco-materials"],
-    image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=600&q=80"
+    image: smartgridElite
   }
 ];
 
