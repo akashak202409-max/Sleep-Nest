@@ -15,6 +15,7 @@ import CartDrawer from './components/CartDrawer';
 import ProfileModal from './components/ProfileModal';
 import ProductDetailPage from './components/ProductDetailPage';
 import PaymentPage from './components/PaymentPage';
+import WishlistPage from './components/WishlistPage';
 import { Sparkles, ArrowRight, ShieldCheck, RefreshCw, Truck, Flame } from 'lucide-react';
 import logo from './assets/logo.png';
 import {
@@ -169,6 +170,8 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [checkoutMode, setCheckoutMode] = useState(false);
   const [countdown, setCountdown] = useState({ hours: 4, minutes: 29, seconds: 58 });
+  const [wishlist, setWishlist] = useState([]);
+  const [initialSizeFilter, setInitialSizeFilter] = useState("All");
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -193,6 +196,11 @@ function App() {
     }, 1000);
     return () => clearInterval(timer);
   }, []);
+
+  // Scroll to top of the page when navigating categories, products, or checkout
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [selectedCategory, selectedProduct, checkoutMode]);
   
   const shopRef = useRef(null);
 
@@ -217,6 +225,19 @@ function App() {
         item.id === id ? { ...item, quantity: Math.max(1, newQty) } : item
       )
     );
+  };
+
+  const handleToggleWishlist = (product) => {
+    setWishlist((prevWishlist) => {
+      const exists = prevWishlist.some((item) => item.id === product.id);
+      if (exists) {
+        return prevWishlist.filter((item) => item.id !== product.id);
+      }
+      return [...prevWishlist, product];
+    });
+    setSelectedCategory("Wishlist");
+    setSelectedProduct(null);
+    setCheckoutMode(false);
   };
 
   const handleRemoveItem = (id) => {
@@ -247,12 +268,28 @@ function App() {
             "Protector": "Protectors",
             "Comforter": "Comforters"
           };
-          setSelectedCategory(categoryMap[cat] || cat);
+          if (cat === "King Size") {
+            setSelectedCategory("Mattresses");
+            setInitialSizeFilter("King");
+          } else if (cat === "Queen Size") {
+            setSelectedCategory("Mattresses");
+            setInitialSizeFilter("Queen");
+          } else if (cat === "Single Bed" || cat === "Kids Mattress") {
+            setSelectedCategory("Mattresses");
+            setInitialSizeFilter("Single");
+          } else {
+            setSelectedCategory(categoryMap[cat] || cat);
+            setInitialSizeFilter("All");
+          }
           setSelectedProduct(null);
           setCheckoutMode(false);
-          scrollToShop();
         }}
         activeCategory={selectedCategory}
+        onWishlistClick={() => {
+          setSelectedCategory("Wishlist");
+          setSelectedProduct(null);
+          setCheckoutMode(false);
+        }}
       />
 
       {checkoutMode ? (
@@ -266,17 +303,53 @@ function App() {
           product={selectedProduct} 
           onAddToCart={handleAddToCart} 
           onBack={() => setSelectedProduct(null)} 
+          onToggleWishlist={handleToggleWishlist}
+          wishlist={wishlist}
+        />
+      ) : selectedCategory === "Wishlist" ? (
+        <WishlistPage 
+          wishlist={wishlist} 
+          onRemoveFromWishlist={(id) => setWishlist(prev => prev.filter(item => item.id !== id))} 
+          onAddToCart={handleAddToCart} 
+          onBackToShop={() => setSelectedCategory(null)} 
         />
       ) : selectedCategory === "Mattresses" ? (
-        <MattressPage onAddToCart={handleAddToCart} onProductClick={setSelectedProduct} />
+        <MattressPage 
+          onAddToCart={handleAddToCart} 
+          onProductClick={setSelectedProduct} 
+          onLoginClick={() => setIsProfileOpen(true)}
+          initialSizeFilter={initialSizeFilter}
+          onToggleWishlist={handleToggleWishlist}
+          wishlist={wishlist}
+        />
       ) : selectedCategory === "Pillows" ? (
-        <PillowsPage onAddToCart={handleAddToCart} onProductClick={setSelectedProduct} />
+        <PillowsPage 
+          onAddToCart={handleAddToCart} 
+          onProductClick={setSelectedProduct} 
+          onToggleWishlist={handleToggleWishlist}
+          wishlist={wishlist}
+        />
       ) : selectedCategory === "Protectors" ? (
-        <ProtectorsPage onAddToCart={handleAddToCart} onProductClick={setSelectedProduct} />
+        <ProtectorsPage 
+          onAddToCart={handleAddToCart} 
+          onProductClick={setSelectedProduct} 
+          onToggleWishlist={handleToggleWishlist}
+          wishlist={wishlist}
+        />
       ) : selectedCategory === "Bed Sheets" ? (
-        <SheetsPage onAddToCart={handleAddToCart} onProductClick={setSelectedProduct} />
+        <SheetsPage 
+          onAddToCart={handleAddToCart} 
+          onProductClick={setSelectedProduct} 
+          onToggleWishlist={handleToggleWishlist}
+          wishlist={wishlist}
+        />
       ) : selectedCategory === "Comforters" ? (
-        <ComfortersPage onAddToCart={handleAddToCart} onProductClick={setSelectedProduct} />
+        <ComfortersPage 
+          onAddToCart={handleAddToCart} 
+          onProductClick={setSelectedProduct} 
+          onToggleWishlist={handleToggleWishlist}
+          wishlist={wishlist}
+        />
       ) : (
         <>
           {/* Hero section */}

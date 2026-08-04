@@ -3,7 +3,7 @@ import { ShoppingBag, User, Search, MapPin, PhoneCall, Truck, Heart } from 'luci
 import logo from '../assets/logo.png';
 import './Navbar.css';
 
-const Navbar = ({ cartCount, onCartClick, onProfileClick, onShopClick, onCategoryClick, activeCategory }) => {
+const Navbar = ({ cartCount, onCartClick, onProfileClick, onShopClick, onCategoryClick, activeCategory, onWishlistClick }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [hoveredCategory, setHoveredCategory] = useState(null);
@@ -40,7 +40,7 @@ const Navbar = ({ cartCount, onCartClick, onProfileClick, onShopClick, onCategor
       },
       {
         title: "Mattress By Size",
-        items: ["King Size", "Queen Size", "Single Bed", "Diwan Size", "Kids Mattress"]
+        items: ["King Size", "Queen Size", "Single Bed", "Kids Mattress"]
       },
       {
         title: "Wakefit PureSleep Mattress",
@@ -183,7 +183,7 @@ const Navbar = ({ cartCount, onCartClick, onProfileClick, onShopClick, onCategor
               <User size={22} />
               <span className="icon-label">Account</span>
             </button>
-            <button className="header-icon-btn" aria-label="Wishlist">
+            <button className="header-icon-btn" onClick={onWishlistClick} aria-label="Wishlist">
               <Heart size={22} />
               <span className="icon-label">Wishlist</span>
             </button>

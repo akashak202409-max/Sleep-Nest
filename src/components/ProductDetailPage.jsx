@@ -18,7 +18,7 @@ import {
 } from '../assets/images';
 import './ProductDetailPage.css';
 
-const ProductDetailPage = ({ product, onAddToCart, onBack }) => {
+const ProductDetailPage = ({ product, onAddToCart, onBack, onToggleWishlist, wishlist }) => {
   const [activeImgIdx, setActiveImgIdx] = useState(0);
   const [selectedSeries, setSelectedSeries] = useState("Essential");
   const [selectedSize, setSelectedSize] = useState("Queen | 72\" x 60\" x 6\"");
@@ -204,7 +204,17 @@ const ProductDetailPage = ({ product, onAddToCart, onBack }) => {
               <div className="gallery-action-overlays">
                 <button className="zoom-badge-btn">🔍 Zoom</button>
                 <div className="fav-share-row">
-                  <button className="action-circle-btn"><Heart size={16} /></button>
+                   <button 
+                    className={`action-circle-btn ${wishlist && wishlist.some(w => w.id === product.id) ? 'active' : ''}`}
+                    onClick={() => onToggleWishlist && onToggleWishlist(product)}
+                    aria-label="Favorite"
+                  >
+                    <Heart 
+                      size={16} 
+                      fill={wishlist && wishlist.some(w => w.id === product.id) ? "var(--accent)" : "none"}
+                      color={wishlist && wishlist.some(w => w.id === product.id) ? "var(--accent)" : "currentColor"}
+                    />
+                  </button>
                   <button className="action-circle-btn"><Share2 size={16} /></button>
                 </div>
               </div>

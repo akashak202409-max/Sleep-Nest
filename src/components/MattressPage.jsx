@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Star, Shield, HelpCircle, ArrowRight, Heart } from 'lucide-react';
 import {
   hybridLuxe,
@@ -99,28 +99,50 @@ const MATTRESSES_CATALOG = [
   }
 ];
 
-const MattressPage = ({ onAddToCart, onProductClick }) => {
+const MattressPage = ({ onAddToCart, onProductClick, onLoginClick, initialSizeFilter = "All" }) => {
   // Filters State
   const [priceLimit, setPriceLimit] = useState(30000);
   const [selectedComforts, setSelectedComforts] = useState([]);
   const [selectedHeights, setSelectedHeights] = useState([]);
   const [selectedType, setSelectedType] = useState("All");
-  const [selectedSizeFilter, setSelectedSizeFilter] = useState("All");
+  const [selectedSizeFilter, setSelectedSizeFilter] = useState(initialSizeFilter);
 
   // State to track size & price dynamically for each card
   const [mattressSizes, setMattressSizes] = useState(
-    MATTRESSES_CATALOG.reduce((acc, item) => ({ ...acc, [item.id]: "Queen" }), {})
+    MATTRESSES_CATALOG.reduce((acc, item) => ({ ...acc, [item.id]: initialSizeFilter === "All" ? "Queen" : initialSizeFilter }), {})
   );
+
+  // Sync selected size filter from parent prop (Navbar selection)
+  useEffect(() => {
+    setSelectedSizeFilter(initialSizeFilter);
+    setMattressSizes(prev => {
+      const next = { ...prev };
+      MATTRESSES_CATALOG.forEach(item => {
+        next[item.id] = initialSizeFilter === "All" ? "Queen" : initialSizeFilter;
+      });
+      return next;
+    });
+  }, [initialSizeFilter]);
 
   const sizePricingMultipliers = {
     Single: 0.8,
-    Diwan: 0.9,
     Queen: 1.0,
     King: 1.2
   };
 
   const handleSizeChange = (id, size) => {
     setMattressSizes(prev => ({ ...prev, [id]: size }));
+  };
+
+  const handleSizeFilterChange = (size) => {
+    setSelectedSizeFilter(size);
+    setMattressSizes(prev => {
+      const next = { ...prev };
+      MATTRESSES_CATALOG.forEach(item => {
+        next[item.id] = size === "All" ? "Queen" : size;
+      });
+      return next;
+    });
   };
 
   const handleComfortChange = (comfort) => {
@@ -243,11 +265,11 @@ const MattressPage = ({ onAddToCart, onProductClick }) => {
             <div className="quick-filter-row">
               <span className="row-label">Size:</span>
               <div className="quick-filter-buttons">
-                {["All", "Single", "Diwan", "Queen", "King"].map(size => (
+                {["All", "Single", "Queen", "King"].map(size => (
                   <button 
                     key={size} 
                     className={`quick-pill ${selectedSizeFilter === size ? 'active' : ''}`}
-                    onClick={() => setSelectedSizeFilter(size)}
+                    onClick={() => handleSizeFilterChange(size)}
                   >
                     {size}
                   </button>
@@ -291,8 +313,16 @@ const MattressPage = ({ onAddToCart, onProductClick }) => {
                       style={{ cursor: 'pointer' }}
                       onClick={() => onProductClick && onProductClick({...item, category: "Mattresses"})} 
                     />
-                    <button className="favorite-btn" aria-label="Favorite">
-                      <Heart size={18} />
+                    <button 
+                      className={`favorite-btn ${wishlist && wishlist.some(w => w.id === item.id) ? 'active' : ''}`}
+                      onClick={() => onToggleWishlist && onToggleWishlist({ ...item, category: "Mattresses" })}
+                      aria-label="Favorite"
+                    >
+                      <Heart 
+                        size={18} 
+                        fill={wishlist && wishlist.some(w => w.id === item.id) ? "var(--accent)" : "none"} 
+                        color={wishlist && wishlist.some(w => w.id === item.id) ? "var(--accent)" : "currentColor"}
+                      />
                     </button>
                   </div>
 
@@ -318,7 +348,7 @@ const MattressPage = ({ onAddToCart, onProductClick }) => {
 
                     {/* Size Selector pills */}
                     <div className="card-size-selectors">
-                      {["Single", "Diwan", "Queen", "King"].map(sz => (
+                      {["Single", "Queen", "King"].map(sz => (
                         <button 
                           key={sz} 
                           className={`size-selector-btn ${currentSize === sz ? 'selected' : ''}`}
@@ -361,9 +391,8 @@ const MattressPage = ({ onAddToCart, onProductClick }) => {
             })}
           </div>
 
-          {/* Interactive B2B and help promos */}
           <div className="promo-row">
-            <div className="promo-banner-orange" onClick={() => alert('Sleeping consultation scheduler coming soon!')}>
+            <div className="promo-banner-orange" onClick={onLoginClick}>
               <div className="banner-text">
                 <h3>Log in to unlock more offers!</h3>
                 <p>Exclusive deals for SleepNest account members.</p>

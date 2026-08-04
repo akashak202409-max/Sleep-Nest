@@ -391,7 +391,7 @@
 }
 
 .promo-banner-orange {
-  background: linear-gradient(135deg, #FF8A65 0%, #FF7043 100%);
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
   border-radius: 12px;
   padding: 24px 32px;
   display: flex;
@@ -402,6 +402,7 @@
   cursor: pointer;
   box-shadow: var(--shadow-sm);
   transition: var(--transition-fast);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .promo-banner-orange:hover {
@@ -424,7 +425,7 @@
 
 .banner-cta-btn {
   background-color: #FFFFFF;
-  color: #FF7043;
+  color: var(--primary);
   padding: 12px 24px;
   border-radius: 30px;
   font-weight: 700;
@@ -433,6 +434,12 @@
   align-items: center;
   gap: 8px;
   box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
+}
+
+.banner-cta-btn:hover {
+  background-color: var(--accent);
+  color: var(--primary);
 }
 
 /* Recently viewed block */
