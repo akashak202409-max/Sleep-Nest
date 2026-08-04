@@ -244,7 +244,11 @@ const Navbar = ({ cartCount, onCartClick, onProfileClick, onShopClick, onCategor
                                     className="mega-menu-link"
                                     onClick={(e) => {
                                       e.preventDefault();
-                                      onCategoryClick(item);
+                                      if (["King Size", "Queen Size", "Single Bed", "Kids Mattress"].includes(subItem)) {
+                                        onCategoryClick(subItem);
+                                      } else {
+                                        onCategoryClick(item);
+                                      }
                                       setHoveredCategory(null);
                                     }}
                                   >

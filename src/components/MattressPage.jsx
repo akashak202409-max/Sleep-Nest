@@ -99,7 +99,7 @@ const MATTRESSES_CATALOG = [
   }
 ];
 
-const MattressPage = ({ onAddToCart, onProductClick, onLoginClick, initialSizeFilter = "All" }) => {
+const MattressPage = ({ onAddToCart, onProductClick, onLoginClick, initialSizeFilter = "All", onToggleWishlist, wishlist }) => {
   // Filters State
   const [priceLimit, setPriceLimit] = useState(30000);
   const [selectedComforts, setSelectedComforts] = useState([]);
