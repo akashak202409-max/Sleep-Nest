@@ -332,10 +332,12 @@
 
 /* 5. Flash Sale Banner */
 .flash-sale-banner-full {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #FAF6F0 0%, var(--accent) 100%);
+  color: var(--primary);
   padding: 30px 24px;
   margin-top: 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .flash-sale-container {
@@ -355,7 +357,7 @@
 }
 
 .flash-sale-fire {
-  color: var(--accent);
+  color: var(--primary);
   animation: flicker 1.5s infinite;
 }
 
@@ -366,7 +368,7 @@
 }
 
 .flash-sale-tag {
-  background-color: var(--accent);
+  background-color: var(--primary);
   color: #FFFFFF;
   padding: 3px 8px;
   font-size: 0.65rem;
@@ -376,7 +378,7 @@
 }
 
 .flash-sale-title-box h2 {
-  color: #FFFFFF;
+  color: var(--primary);
   font-size: 1.6rem;
   margin-top: 4px;
 }
@@ -387,25 +389,26 @@
 }
 
 .timer-unit {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(15, 30, 45, 0.05);
   padding: 8px 16px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(15, 30, 45, 0.1);
   min-width: 65px;
 }
 
 .timer-unit strong {
   font-size: 1.25rem;
-  color: var(--accent);
+  color: var(--primary);
 }
 
 .timer-unit span {
   font-size: 0.65rem;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--primary);
+  opacity: 0.8;
 }
 
 @media (max-width: 991px) {

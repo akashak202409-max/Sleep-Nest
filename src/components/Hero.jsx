@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { hybridLuxe, coolingGel, ecoCoir } from '../assets/images';
 import './Hero.css';
 
@@ -103,10 +104,10 @@ const Hero = ({ onShopClick }) => {
 
         {/* Carousel controls */}
         <button className="carousel-nav-btn prev" onClick={handlePrev} aria-label="Previous Slide">
-          ‹
+          <ChevronLeft size={28} />
         </button>
         <button className="carousel-nav-btn next" onClick={handleNext} aria-label="Next Slide">
-          ›
+          <ChevronRight size={28} />
         </button>
 
         {/* Carousel indicator dots */}

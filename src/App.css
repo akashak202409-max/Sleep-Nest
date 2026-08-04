@@ -205,9 +205,11 @@
 }
 
 .footer-logo .logo-img {
-  height: 58px;
+  height: 90px;
   width: auto;
   display: block;
+  filter: invert(1) contrast(1.2);
+  mix-blend-mode: screen;
 }
 
 .footer-brand p {

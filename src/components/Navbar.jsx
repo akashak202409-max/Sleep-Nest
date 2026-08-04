@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingBag, User, Search, MapPin, PhoneCall, Truck, Heart } from 'lucide-react';
+import { ShoppingBag, User, Search, MapPin, PhoneCall, Truck, Heart, Bed } from 'lucide-react';
 import logo from '../assets/logo.png';
 import './Navbar.css';
 
@@ -160,7 +160,7 @@ const Navbar = ({ cartCount, onCartClick, onProfileClick, onShopClick, onCategor
         <div className="main-header-container">
           {/* Logo */}
           <a href="/" className="navbar-logo" onClick={(e) => { e.preventDefault(); onCategoryClick(null); }}>
-            <img src={logo} alt="MATTRESS." className="logo-img" />
+            <img src={logo} alt="SleepNest" className="logo-img" />
           </a>
 
           {/* Centered Search Bar */}
