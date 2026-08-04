@@ -49,9 +49,9 @@
 }
 
 .bank-offer-tab.active {
-  border-color: #FF7A00;
-  color: #FF7A00;
-  background-color: rgba(255, 122, 0, 0.04);
+  border-color: var(--primary);
+  color: var(--primary);
+  background-color: rgba(15, 30, 45, 0.04);
 }
 
 .trend-icon {
