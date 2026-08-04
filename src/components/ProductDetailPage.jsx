@@ -5,6 +5,8 @@ import {
   hybridLuxe, 
   latexSupport, 
   kingBedVideo,
+  luxuryMattressVideo2,
+  kidsMattressVideo,
   cottonSheets,
   bambooSheets,
   satinSheets,
@@ -17,6 +19,13 @@ import {
 import './ProductDetailPage.css';
 
 const ProductDetailPage = ({ product, onAddToCart, onBack }) => {
+  const [activeImgIdx, setActiveImgIdx] = useState(0);
+  const [selectedSeries, setSelectedSeries] = useState("Essential");
+  const [selectedSize, setSelectedSize] = useState("Queen | 72\" x 60\" x 6\"");
+  const [pincode, setPincode] = useState("600011");
+  const [deliveryChecked, setDeliveryChecked] = useState(false);
+  const [countdown, setCountdown] = useState({ hours: 5, minutes: 47, seconds: 36 });
+
   const isSheet = product.category === "Bed Sheets";
   const sheetStyles = [cottonSheets, bambooSheets, satinSheets, microfiberSheets];
   const altSheets = sheetStyles.filter(img => img !== product.image);
@@ -24,6 +33,22 @@ const ProductDetailPage = ({ product, onAddToCart, onBack }) => {
   const isProtector = product.category === "Protectors";
   const protectorStyles = [bambooProtector, cottonProtector, quiltedProtector, tencelProtector];
   const altProtectors = protectorStyles.filter(img => img !== product.image);
+
+  const isMattress = product.category === "Mattresses";
+
+  // Choose the video based on selected size for Mattress category
+  let mattressVideo = null;
+  if (isMattress) {
+    if (selectedSize && selectedSize.includes("King")) {
+      mattressVideo = { type: 'video', url: kingBedVideo };
+    } else if (selectedSize && selectedSize.includes("Queen")) {
+      mattressVideo = { type: 'video', url: luxuryMattressVideo2 };
+    } else if (selectedSize && (selectedSize.includes("Single") || selectedSize.includes("Kids") || selectedSize.includes("Double"))) {
+      mattressVideo = { type: 'video', url: kidsMattressVideo };
+    } else {
+      mattressVideo = { type: 'video', url: luxuryMattressVideo2 };
+    }
+  }
 
   // Mock alternative images for gallery based on category or product properties
   const galleryItems = isSheet ? [
@@ -39,18 +64,12 @@ const ProductDetailPage = ({ product, onAddToCart, onBack }) => {
     { type: 'image', url: altProtectors[2] || tencelProtector }
   ].filter(Boolean).slice(0, 5) : [
     { type: 'image', url: product.image },
+    mattressVideo,
     product.fabricImage ? { type: 'image', url: product.fabricImage } : null,
     { type: 'image', url: dualComfort },
     { type: 'image', url: hybridLuxe },
     !product.fabricImage ? { type: 'image', url: latexSupport } : null
   ].filter(Boolean).slice(0, 5);
-
-  const [activeImgIdx, setActiveImgIdx] = useState(0);
-  const [selectedSeries, setSelectedSeries] = useState("Essential");
-  const [selectedSize, setSelectedSize] = useState("Queen | 72\" x 60\" x 6\"");
-  const [pincode, setPincode] = useState("600011");
-  const [deliveryChecked, setDeliveryChecked] = useState(false);
-  const [countdown, setCountdown] = useState({ hours: 5, minutes: 47, seconds: 36 });
 
   // Countdown timer effect
   useEffect(() => {

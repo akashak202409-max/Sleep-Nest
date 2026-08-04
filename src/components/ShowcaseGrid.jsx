@@ -41,7 +41,7 @@ const ShowcaseGrid = ({ onSelectCategory }) => {
       <section className="gift-card-promo-banner">
         <div className="gift-card-content">
           <div className="gift-card-left">
-            <Percent size={28} className="promo-icon-gold" />
+            <Percent size={28} className="promo-icon-blue" />
             <div>
               <h3>Corporate Gifting & Gift Vouchers</h3>
               <p>Delight your employees or loved ones with ultimate comfort vouchers.</p>

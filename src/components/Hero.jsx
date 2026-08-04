@@ -85,14 +85,16 @@ const Hero = ({ onShopClick }) => {
               </div>
               <div className="hero-visual-content">
                 <div className="glow-sphere"></div>
-                <img 
-                  src={slide.img} 
-                  alt={slide.title} 
-                  className="hero-promo-img" 
-                />
-                <div className="promo-floating-tag">
-                  <p className="tag-number">{slide.tagNum}</p>
-                  <p className="tag-lbl">{slide.tagLbl}</p>
+                <div className="hero-img-container">
+                  <img 
+                    src={slide.img} 
+                    alt={slide.title} 
+                    className="hero-promo-img" 
+                  />
+                  <div className="promo-floating-tag">
+                    <p className="tag-number">{slide.tagNum}</p>
+                    <p className="tag-lbl">{slide.tagLbl}</p>
+                  </div>
                 </div>
               </div>
             </div>

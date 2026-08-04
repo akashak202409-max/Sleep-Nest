@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ShowcaseGrid from './components/ShowcaseGrid';
@@ -168,6 +168,31 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [checkoutMode, setCheckoutMode] = useState(false);
+  const [countdown, setCountdown] = useState({ hours: 4, minutes: 29, seconds: 58 });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev.hours === 0 && prev.minutes === 0 && prev.seconds === 0) {
+          clearInterval(timer);
+          return prev;
+        }
+        let s = prev.seconds - 1;
+        let m = prev.minutes;
+        let h = prev.hours;
+        if (s < 0) {
+          s = 59;
+          m -= 1;
+        }
+        if (m < 0) {
+          m = 59;
+          h -= 1;
+        }
+        return { hours: h, minutes: m, seconds: s };
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
   
   const shopRef = useRef(null);
 
@@ -268,9 +293,9 @@ function App() {
                 </div>
               </div>
               <div className="flash-sale-timer-box">
-                <div className="timer-unit"><strong>04</strong><span>Hours</span></div>
-                <div className="timer-unit"><strong>29</strong><span>Mins</span></div>
-                <div className="timer-unit"><strong>58</strong><span>Secs</span></div>
+                <div className="timer-unit"><strong>{String(countdown.hours).padStart(2, '0')}</strong><span>Hours</span></div>
+                <div className="timer-unit"><strong>{String(countdown.minutes).padStart(2, '0')}</strong><span>Mins</span></div>
+                <div className="timer-unit"><strong>{String(countdown.seconds).padStart(2, '0')}</strong><span>Secs</span></div>
               </div>
               <button className="btn-accent" onClick={scrollToShop}>
                 Grab Deal Now
