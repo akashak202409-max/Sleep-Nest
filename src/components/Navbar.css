@@ -494,6 +494,6 @@
 }
 
 .mobile-submenu-link.all-link {
-  color: var(--accent);
+  color: var(--primary);
   font-weight: 600;
 }
