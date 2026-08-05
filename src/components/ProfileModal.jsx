@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, User, ShieldCheck, ShoppingBag, LogOut, Settings } from 'lucide-react';
+import { X, User, ShieldCheck, ShoppingBag, LogOut, Settings, Eye, EyeOff } from 'lucide-react';
 import './ProfileModal.css';
 
 const ProfileModal = ({ isOpen, onClose }) => {
@@ -9,6 +9,7 @@ const ProfileModal = ({ isOpen, onClose }) => {
   const [name, setName] = useState('Alexander Vance');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   if (!isOpen) return null;
 
@@ -118,13 +119,23 @@ const ProfileModal = ({ isOpen, onClose }) => {
               
               <div className="form-group">
                 <label>Password</label>
-                <input 
-                  type="password" 
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required 
-                  placeholder="Enter your password"
-                />
+                <div className="password-input-wrapper">
+                  <input 
+                    type={showPassword ? "text" : "password"} 
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required 
+                    placeholder="Enter your password"
+                  />
+                  <button 
+                    type="button" 
+                    className="password-toggle-btn"
+                    onClick={() => setShowPassword(!showPassword)}
+                    aria-label={showPassword ? "Hide password" : "Show password"}
+                  >
+                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                  </button>
+                </div>
               </div>
 
               <button type="submit" className="btn-primary login-submit-btn">
@@ -190,24 +201,44 @@ const ProfileModal = ({ isOpen, onClose }) => {
               
               <div className="form-group">
                 <label>Password</label>
-                <input 
-                  type="password" 
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required 
-                  placeholder="Create password"
-                />
+                <div className="password-input-wrapper">
+                  <input 
+                    type={showPassword ? "text" : "password"} 
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required 
+                    placeholder="Create password"
+                  />
+                  <button 
+                    type="button" 
+                    className="password-toggle-btn"
+                    onClick={() => setShowPassword(!showPassword)}
+                    aria-label={showPassword ? "Hide password" : "Show password"}
+                  >
+                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                  </button>
+                </div>
               </div>
 
               <div className="form-group">
                 <label>Confirm Password</label>
-                <input 
-                  type="password" 
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  required 
-                  placeholder="Confirm password"
-                />
+                <div className="password-input-wrapper">
+                  <input 
+                    type={showPassword ? "text" : "password"} 
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    required 
+                    placeholder="Confirm password"
+                  />
+                  <button 
+                    type="button" 
+                    className="password-toggle-btn"
+                    onClick={() => setShowPassword(!showPassword)}
+                    aria-label={showPassword ? "Hide password" : "Show password"}
+                  >
+                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                  </button>
+                </div>
               </div>
 
               <button type="submit" className="btn-primary login-submit-btn">

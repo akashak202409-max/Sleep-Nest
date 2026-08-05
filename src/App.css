@@ -120,7 +120,7 @@
 
 /* Newsletter banner */
 .newsletter-banner {
-  background-color: var(--accent-light);
+  background-color: var(--accent);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   padding: 80px 24px;
@@ -136,7 +136,7 @@
 }
 
 .newsletter-sparkle {
-  color: var(--accent-hover);
+  color: var(--primary);
   margin-bottom: 16px;
 }
 
@@ -238,7 +238,7 @@
 }
 
 .social-icon-link:hover {
-  color: var(--text-light);
+  color: var(--primary);
   background-color: var(--accent);
   transform: translateY(-2px);
 }
@@ -351,7 +351,7 @@
 .promo-banner-split-tag {
   font-size: 0.7rem;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--primary);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -383,8 +383,9 @@
 }
 
 .btn-outline-dark-small:hover {
-  background-color: var(--primary);
+  background-color: var(--accent);
   color: #FFFFFF;
+  border-color: var(--accent);
 }
 
 .promo-banner-split-image-wrapper {
@@ -428,11 +429,11 @@
   }
 }
 
-/* Navy Blue Background Guarantee Strip Styling */
+/* Blue Background Guarantee Strip Styling */
 .trust-strip-white {
-  background-color: var(--primary); /* Navy Blue Background */
+  background-color: var(--accent);
   padding: 32px 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--border);
 }
 
 .trust-strip-white-container {
@@ -451,8 +452,8 @@
 }
 
 .trust-strip-white-icon-wrapper {
-  background-color: var(--accent-light); /* Beige background tint */
-  color: var(--primary);                /* Navy blue icon color */
+  background-color: var(--primary);
+  color: #FFFFFF;
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -460,7 +461,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1px solid rgba(212, 178, 140, 0.3);
+  border: 1px solid var(--primary-dark);
 }
 
 .trust-strip-white-text {
@@ -471,13 +472,13 @@
   font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 700;
-  color: #FFFFFF; /* White text */
+  color: var(--text-dark);
   margin-bottom: 2px;
 }
 
 .trust-strip-white-text p {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.75); /* Light grey/white text */
+  color: var(--text-muted);
   margin: 0;
 }
 

@@ -71,7 +71,7 @@
 }
 
 .empty-heart-icon {
-  color: var(--accent-hover);
+  color: #EF4444;
   animation: floatHeart 3s ease-in-out infinite;
   z-index: 2;
 }
@@ -79,7 +79,7 @@
 .heart-glow-ring {
   position: absolute;
   inset: 15px;
-  background-color: rgba(212, 178, 140, 0.2);
+  background-color: rgba(239, 68, 68, 0.15);
   border-radius: 50%;
   filter: blur(15px);
   animation: pulseGlow 3s ease-in-out infinite;

@@ -4,13 +4,14 @@
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
   
-  /* Color Palette - Premium Navy Blue & Elegant Beige */
-  --primary: #0F1E2D;        /* Very Dark Navy Blue Swatch */
-  --primary-light: #1D3144;  /* Lighter Blue */
-  --primary-dark: #08111B;   /* Extremely Dark Blue */
-  --accent: #D4B28C;         /* Premium Warm Beige/Gold */
-  --accent-hover: #C5A076;   /* Darker Beige */
-  --accent-light: #FAF6F0;   /* Light Cream/Beige Background */
+  /* Color Palette - Primary: Vibrant Violet (#9d4edd) | Secondary: Beige (#FAF6F0) */
+  --primary: #9d4edd;        /* Vibrant Violet Primary */
+  --primary-light: #b583e8;  /* Lighter Violet */
+  --primary-dark: #7b2cbf;   /* Darker Violet */
+  --accent: #FAF8F5;         /* Lighter Soft Beige Secondary/Accent */
+  --accent-hover: #F2EFE9;   /* Darker Soft Beige for Hover */
+  --accent-light: #FDFDFB;   /* Very Light Soft Beige Tint Background */
+  --rating-gold: #FFB300;    /* Gold Yellow Rating Stars */
   --background: #FFFFFF;     /* Pure White */
   --card-bg: #FFFFFF;
   --text-dark: #0F1A24;
@@ -92,7 +93,7 @@ button {
   font-weight: 600;
   font-size: 0.95rem;
   border-radius: 4px;
-  border: 1px solid var(--accent);
+  border: 1.5px solid var(--primary);
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -100,9 +101,9 @@ button {
 }
 
 .btn-accent:hover {
-  background-color: var(--accent-hover);
+  background-color: var(--primary);
   color: var(--text-light);
-  border-color: var(--accent-hover);
+  border-color: var(--primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }

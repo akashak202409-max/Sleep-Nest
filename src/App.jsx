@@ -370,7 +370,7 @@ function App() {
                 <div className="timer-unit"><strong>{String(countdown.minutes).padStart(2, '0')}</strong><span>Mins</span></div>
                 <div className="timer-unit"><strong>{String(countdown.seconds).padStart(2, '0')}</strong><span>Secs</span></div>
               </div>
-              <button className="btn-primary" onClick={scrollToShop}>
+              <button className="btn-primary flash-sale-btn" onClick={scrollToShop}>
                 Grab Deal Now
               </button>
             </div>

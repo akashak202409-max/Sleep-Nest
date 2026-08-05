@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Star, Heart, Share2, MapPin, ShieldCheck, Truck, RefreshCw, HelpCircle, ArrowLeft, ArrowRight, Play } from 'lucide-react';
+import { Star, Heart, Share2, MapPin, ShieldCheck, Truck, RefreshCw, HelpCircle, ArrowLeft, ArrowRight, Play, ChevronLeft, ChevronRight } from 'lucide-react';
 import { 
   dualComfort, 
   hybridLuxe, 
@@ -191,14 +191,16 @@ const ProductDetailPage = ({ product, onAddToCart, onBack, onToggleWishlist, wis
               <button 
                 className="gallery-nav-arrow arrow-left" 
                 onClick={() => setActiveImgIdx(prev => (prev === 0 ? galleryItems.length - 1 : prev - 1))}
+                aria-label="Previous image"
               >
-                &lt;
+                <ChevronLeft size={20} />
               </button>
               <button 
                 className="gallery-nav-arrow arrow-right" 
                 onClick={() => setActiveImgIdx(prev => (prev === galleryItems.length - 1 ? 0 : prev + 1))}
+                aria-label="Next image"
               >
-                &gt;
+                <ChevronRight size={20} />
               </button>
 
               <div className="gallery-action-overlays">
@@ -211,8 +213,8 @@ const ProductDetailPage = ({ product, onAddToCart, onBack, onToggleWishlist, wis
                   >
                     <Heart 
                       size={16} 
-                      fill={wishlist && wishlist.some(w => w.id === product.id) ? "var(--accent)" : "none"}
-                      color={wishlist && wishlist.some(w => w.id === product.id) ? "var(--accent)" : "currentColor"}
+                      fill={wishlist && wishlist.some(w => w.id === product.id) ? "#EF4444" : "none"}
+                      color={wishlist && wishlist.some(w => w.id === product.id) ? "#EF4444" : "currentColor"}
                     />
                   </button>
                   <button className="action-circle-btn"><Share2 size={16} /></button>

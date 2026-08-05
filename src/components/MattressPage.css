@@ -274,7 +274,7 @@
 .card-item-type {
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--accent-hover);
+  color: var(--primary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 6px;
@@ -297,11 +297,11 @@
 
 .stars-row {
   display: flex;
-  color: var(--accent);
+  color: var(--rating-gold);
 }
 
 .star-fill {
-  fill: var(--accent);
+  fill: var(--rating-gold);
 }
 
 .rating-label {
@@ -334,9 +334,9 @@
 }
 
 .size-selector-btn.selected {
-  background-color: var(--accent-light);
-  border-color: var(--accent);
-  color: var(--accent-hover);
+  background-color: rgba(157, 78, 221, 0.08);
+  border-color: var(--primary);
+  color: var(--primary-dark);
 }
 
 /* Features checklist inside card */
@@ -493,7 +493,7 @@
 .recent-price {
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--accent-hover);
+  color: #000000;
 }
 
 /* Responsiveness */

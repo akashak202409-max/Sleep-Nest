@@ -142,19 +142,28 @@
 }
 
 .faq-question-btn:hover {
-  background-color: #F8FAFC;
-  color: var(--accent-hover);
+  background-color: var(--primary);
+  color: var(--accent);
+}
+
+.faq-question-btn:hover .faq-toggle-icon {
+  color: var(--accent);
 }
 
 .faq-question-btn.active {
-  border-bottom: 1px solid var(--border);
-  background-color: #F8FAFC;
+  border-bottom: 1px solid var(--primary-dark);
+  background-color: var(--primary);
+  color: var(--accent);
+}
+
+.faq-question-btn.active .faq-toggle-icon {
+  color: var(--accent);
 }
 
 .faq-toggle-icon {
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--primary);
 }
 
 .faq-answer-pane {

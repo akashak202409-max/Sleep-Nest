@@ -114,11 +114,11 @@
 
 .stars {
   display: flex;
-  color: var(--accent);
+  color: var(--rating-gold);
 }
 
 .star-filled {
-  fill: var(--accent);
+  fill: var(--rating-gold);
 }
 
 .star-empty {

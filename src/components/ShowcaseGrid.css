@@ -114,10 +114,11 @@
   max-width: 1280px;
   margin: 0 auto;
   width: calc(100% - 48px);
-  background: var(--accent-light);
-  border: 1px solid var(--border);
+  background: var(--primary);
+  border: 1px solid var(--primary-dark);
   border-radius: 12px;
   padding: 24px 36px;
+  box-shadow: var(--shadow-md);
 }
 
 .gift-card-content {
@@ -134,28 +135,33 @@
   gap: 20px;
 }
 
-.promo-icon-blue {
-  color: #0066cc;
-  background-color: rgba(0, 102, 204, 0.10);
-  padding: 12px;
+.promo-icon-wrapper {
+  color: var(--primary);
+  background-color: var(--accent);
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .gift-card-left h3 {
   font-size: 1.25rem;
-  color: var(--text-dark);
+  color: #FFFFFF;
   margin-bottom: 4px;
 }
 
 .gift-card-left p {
-  color: var(--text-muted);
+  color: var(--accent);
   font-size: 0.9rem;
 }
 
 .btn-outline-dark {
   background-color: transparent;
-  color: var(--primary);
-  border: 1.5px solid var(--primary);
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
   padding: 10px 24px;
   border-radius: 30px;
   font-weight: 600;
@@ -166,8 +172,9 @@
 }
 
 .btn-outline-dark:hover {
-  background-color: var(--primary);
-  color: #FFFFFF;
+  background-color: var(--accent);
+  color: var(--primary-dark);
+  border-color: var(--accent);
 }
 
 /* 3. Spine Support Mattress Highlight block */
@@ -222,7 +229,7 @@
 }
 
 .accent-sub {
-  color: var(--accent);
+  color: var(--primary);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 2px;
@@ -332,12 +339,12 @@
 
 /* 5. Flash Sale Banner */
 .flash-sale-banner-full {
-  background: linear-gradient(135deg, #FAF6F0 0%, var(--accent) 100%);
-  color: var(--primary);
+  background: var(--primary);
+  color: #FFFFFF;
   padding: 30px 24px;
   margin-top: 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .flash-sale-container {
@@ -357,7 +364,7 @@
 }
 
 .flash-sale-fire {
-  color: var(--primary);
+  color: var(--accent);
   animation: flicker 1.5s infinite;
 }
 
@@ -368,8 +375,8 @@
 }
 
 .flash-sale-tag {
-  background-color: var(--primary);
-  color: #FFFFFF;
+  background-color: var(--accent);
+  color: var(--primary);
   padding: 3px 8px;
   font-size: 0.65rem;
   font-weight: 700;
@@ -378,7 +385,7 @@
 }
 
 .flash-sale-title-box h2 {
-  color: var(--primary);
+  color: var(--accent);
   font-size: 1.6rem;
   margin-top: 4px;
 }
@@ -389,26 +396,26 @@
 }
 
 .timer-unit {
-  background-color: rgba(15, 30, 45, 0.05);
+  background-color: rgba(255, 255, 255, 0.08);
   padding: 8px 16px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid rgba(15, 30, 45, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   min-width: 65px;
 }
 
 .timer-unit strong {
   font-size: 1.25rem;
-  color: var(--primary);
+  color: var(--accent);
 }
 
 .timer-unit span {
   font-size: 0.65rem;
   text-transform: uppercase;
-  color: var(--primary);
-  opacity: 0.8;
+  color: rgba(250, 246, 240, 0.8);
+  opacity: 0.9;
 }
 
 @media (max-width: 991px) {
@@ -468,4 +475,20 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
+}
+
+/* Flash Sale Custom Button */
+.flash-sale-btn {
+  background-color: var(--accent) !important;
+  color: var(--primary) !important;
+  border: 1.5px solid var(--accent) !important;
+  font-weight: 700;
+  transition: all var(--transition-fast);
+}
+
+.flash-sale-btn:hover {
+  background-color: transparent !important;
+  color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  transform: translateY(-2px);
 }

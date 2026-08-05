@@ -165,8 +165,7 @@
 }
 
 .action-circle-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent-hover);
+  color: #EF4444;
 }
 
 /* Highlights strip */
@@ -241,7 +240,17 @@
 .compare-series-btn {
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--accent-hover);
+  color: var(--accent);
+  background-color: var(--primary);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--primary-dark);
+  transition: all var(--transition-fast);
+}
+
+.compare-series-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
 }
 
 /* Series Radio Cards */

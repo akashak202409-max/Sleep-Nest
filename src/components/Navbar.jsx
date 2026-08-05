@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingBag, User, Search, MapPin, PhoneCall, Truck, Heart, Bed } from 'lucide-react';
+import { ShoppingBag, User, Search, MapPin, PhoneCall, Truck, Heart, Bed, Menu, X } from 'lucide-react';
 import logo from '../assets/logo.png';
 import './Navbar.css';
 
@@ -7,6 +7,7 @@ const Navbar = ({ cartCount, onCartClick, onProfileClick, onShopClick, onCategor
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [hoveredCategory, setHoveredCategory] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
     "Mattresses",
@@ -158,8 +159,16 @@ const Navbar = ({ cartCount, onCartClick, onProfileClick, onShopClick, onCategor
       {/* 2. Main Header (Brand + Search + Actions) */}
       <div className="main-header">
         <div className="main-header-container">
+          <button 
+            className="mobile-menu-btn" 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
+            aria-label="Toggle Menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
           {/* Logo */}
-          <a href="/" className="navbar-logo" onClick={(e) => { e.preventDefault(); onCategoryClick(null); }}>
+          <a href="/" className="navbar-logo" onClick={(e) => { e.preventDefault(); onCategoryClick(null); setIsMobileMenuOpen(false); }}>
             <img src={logo} alt="SleepNest" className="logo-img" />
           </a>
 
@@ -268,6 +277,77 @@ const Navbar = ({ cartCount, onCartClick, onProfileClick, onShopClick, onCategor
           </ul>
         </div>
       </nav>
+
+      {/* Mobile Menu Drawer Overlay */}
+      {isMobileMenuOpen && (
+        <div className="mobile-menu-drawer">
+          <div className="mobile-menu-drawer-header">
+            <h3>Shop Categories</h3>
+            <button className="close-drawer-btn" onClick={() => setIsMobileMenuOpen(false)}>
+              <X size={24} />
+            </button>
+          </div>
+          <ul className="mobile-menu-links">
+            {navItems.map((item) => {
+              const displayTitle = item === "Bedsheets" ? "Bed Sheets" : item === "Protector" ? "Protectors" : item === "Comforter" ? "Comforters" : item;
+              
+              if (item === "Mattresses") {
+                return (
+                  <li key={item} className="mobile-menu-item nested">
+                    <span className="mobile-menu-label">Mattresses</span>
+                    <ul className="mobile-submenu-links">
+                      <li>
+                        <a 
+                          href="#mattresses-all"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            onCategoryClick("Mattresses");
+                            setIsMobileMenuOpen(false);
+                          }}
+                          className="mobile-submenu-link all-link"
+                        >
+                          All Mattresses
+                        </a>
+                      </li>
+                      {["King Size", "Queen Size", "Single Bed", "Kids Mattress"].map((size) => (
+                        <li key={size}>
+                          <a 
+                            href={`#mattresses-${size.toLowerCase().replace(' ', '-')}`}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              onCategoryClick(size);
+                              setIsMobileMenuOpen(false);
+                            }}
+                            className="mobile-submenu-link"
+                          >
+                            {size}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                );
+              }
+
+              return (
+                <li key={item} className="mobile-menu-item">
+                  <a 
+                    href={`#${item.toLowerCase().replace(' ', '-')}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onCategoryClick(item);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="mobile-menu-link"
+                  >
+                    {displayTitle}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
     </header>
   );
 };

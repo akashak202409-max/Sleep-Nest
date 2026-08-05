@@ -9,8 +9,8 @@
 
 /* 1. Top Bar styles */
 .top-bar {
-  background-color: var(--primary-dark);
-  color: #FFFFFF;
+  background-color: var(--primary);
+  color: var(--accent);
   font-size: 0.75rem;
   padding: 8px 24px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -32,7 +32,7 @@
 
 .promo-badge {
   background-color: var(--accent);
-  color: #FFFFFF;
+  color: var(--primary);
   padding: 2px 6px;
   font-weight: 700;
   border-radius: 3px;
@@ -51,7 +51,7 @@
 }
 
 .top-link {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(250, 246, 240, 0.85);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -60,12 +60,12 @@
 }
 
 .top-link:hover {
-  color: var(--accent);
+  color: #FFFFFF;
 }
 
 /* 2. Main Header styles */
 .main-header {
-  background-color: #FFFFFF;
+  background-color: var(--accent);
   color: var(--primary);
   padding: 14px 24px;
   border-bottom: 1px solid var(--border);
@@ -81,7 +81,7 @@
 }
 
 .logo-img {
-  height: 65px;
+  height: 80px;
   width: auto;
   display: block;
   mix-blend-mode: multiply;
@@ -116,7 +116,7 @@
 
 .search-input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(212, 178, 140, 0.25);
+  box-shadow: 0 0 0 3px rgba(33, 37, 41, 0.15);
 }
 
 .search-submit-btn {
@@ -124,7 +124,7 @@
   right: 4px;
   top: 50%;
   transform: translateY(-50%);
-  background-color: var(--accent);
+  background-color: var(--primary);
   color: #FFFFFF;
   border-radius: 50%;
   width: 34px;
@@ -135,7 +135,7 @@
 }
 
 .search-submit-btn:hover {
-  background-color: var(--accent-hover);
+  background-color: var(--primary-dark);
 }
 
 /* Actions */
@@ -157,7 +157,7 @@
 }
 
 .header-icon-btn:hover {
-  color: var(--accent-hover);
+  color: var(--primary-light);
 }
 
 .icon-label {
@@ -172,7 +172,7 @@
   position: absolute;
   top: -6px;
   right: 18px;
-  background-color: var(--accent);
+  background-color: var(--primary);
   color: #FFFFFF;
   font-size: 0.65rem;
   font-weight: 700;
@@ -182,12 +182,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1.5px solid var(--primary);
+  border: 1.5px solid var(--accent);
 }
 
-/* 3. Sub Navbar styles */
+/* 3. Sub Navigation styles */
 .sub-navbar {
-  background-color: var(--primary-light);
+  background-color: var(--primary);
   padding: 8px 24px;
   position: relative; /* Added relative positioning for Mega Menu dropdown */
 }
@@ -216,10 +216,10 @@
 }
 
 .sub-navbar-link {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(250, 246, 240, 0.85);
   text-decoration: none;
   font-size: 0.85rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.3px;
   padding: 8px 0;
   position: relative;
@@ -228,7 +228,7 @@
 
 .sub-navbar-link:hover,
 .sub-navbar-link.active {
-  color: var(--accent);
+  color: #FFFFFF;
 }
 
 .sub-navbar-link::after {
@@ -238,7 +238,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--accent);
+  background-color: #FFFFFF;
   transition: width var(--transition-normal);
 }
 
@@ -329,6 +329,22 @@
   color: var(--accent);
 }
 
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 8px;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--transition-fast);
+}
+
+.mobile-menu-btn:hover {
+  opacity: 0.8;
+}
+
 @media (max-width: 991px) {
   .mega-menu-grid {
     grid-template-columns: repeat(4, 1fr);
@@ -340,6 +356,14 @@
   .top-bar-right,
   .icon-label {
     display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: flex;
+  }
+  
+  .sub-navbar {
+    display: none; /* Hide top categories strip on mobile device view */
   }
   
   .main-header-container {
@@ -355,4 +379,121 @@
   .mega-menu-dropdown {
     display: none; /* Hide Mega Menu on mobile viewports */
   }
+}
+
+/* 4. Mobile Slide-out Menu Drawer */
+.mobile-menu-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  max-width: 85vw;
+  background-color: #FFFFFF;
+  z-index: 10000;
+  box-shadow: 4px 0 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+.mobile-menu-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+}
+
+.mobile-menu-drawer-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--primary);
+  margin: 0;
+}
+
+.close-drawer-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.mobile-menu-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  padding-bottom: 20px;
+}
+
+.mobile-menu-item {
+  border-bottom: 1px solid rgba(15, 30, 45, 0.05);
+  padding-bottom: 12px;
+}
+
+.mobile-menu-item.nested {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.mobile-menu-link {
+  text-decoration: none;
+  color: var(--primary);
+  font-size: 1.05rem;
+  font-weight: 600;
+  display: block;
+  transition: color var(--transition-fast);
+}
+
+.mobile-menu-link:hover {
+  color: var(--accent);
+}
+
+.mobile-menu-label {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.mobile-submenu-links {
+  list-style: none;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+  border-left: 2px solid rgba(15, 30, 45, 0.08);
+}
+
+.mobile-submenu-link {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: block;
+  transition: color var(--transition-fast);
+}
+
+.mobile-submenu-link:hover {
+  color: var(--accent);
+}
+
+.mobile-submenu-link.all-link {
+  color: var(--accent);
+  font-weight: 600;
 }

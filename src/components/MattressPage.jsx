@@ -320,8 +320,8 @@ const MattressPage = ({ onAddToCart, onProductClick, onLoginClick, initialSizeFi
                     >
                       <Heart 
                         size={18} 
-                        fill={wishlist && wishlist.some(w => w.id === item.id) ? "var(--accent)" : "none"} 
-                        color={wishlist && wishlist.some(w => w.id === item.id) ? "var(--accent)" : "currentColor"}
+                        fill={wishlist && wishlist.some(w => w.id === item.id) ? "#EF4444" : "none"} 
+                        color={wishlist && wishlist.some(w => w.id === item.id) ? "#EF4444" : "currentColor"}
                       />
                     </button>
                   </div>

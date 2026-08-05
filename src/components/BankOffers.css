@@ -51,7 +51,7 @@
 .bank-offer-tab.active {
   border-color: var(--primary);
   color: var(--primary);
-  background-color: rgba(15, 30, 45, 0.04);
+  background-color: rgba(157, 78, 221, 0.05);
 }
 
 .trend-icon {
@@ -78,7 +78,7 @@
   height: 180px;
   border-radius: 12px;
   padding: 16px;
-  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+  background: var(--accent);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -86,13 +86,18 @@
   box-shadow: var(--shadow-sm);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
   cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(157, 78, 221, 0.15);
 }
 
 .bank-offer-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
-  border-color: var(--accent);
+  background-color: var(--primary);
+  border-color: var(--primary-dark);
+}
+
+.bank-offer-card:hover .bank-offer-desc {
+  color: var(--accent);
 }
 
 .bank-logo-wrapper {
@@ -119,8 +124,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #FFFFFF;
+  color: var(--primary);
   text-align: center;
+  transition: color var(--transition-fast);
 }
 
 .offer-type {
