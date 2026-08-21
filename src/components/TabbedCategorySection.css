@@ -1,0 +1,73 @@
+.tabbed-category-section {
+  padding: 60px 0;
+  background-color: var(--cream);
+}
+
+.tcs-header {
+  margin-bottom: 40px;
+}
+
+.tcs-tabs-container {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 40px;
+  padding: 6px 16px;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.tcs-tab {
+  background: transparent;
+  border: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gray-500);
+  cursor: pointer;
+  position: relative;
+  text-transform: capitalize;
+  transition: color 0.2s ease;
+}
+
+.tcs-tab:hover {
+  color: var(--text-dark);
+}
+
+.tcs-tab.active {
+  color: var(--primary);
+}
+
+.tcs-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 12px;
+  right: 12px;
+  height: 3px;
+  background-color: var(--accent);
+  border-radius: 2px;
+}
+
+.tcs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 1024px) {
+  .tcs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .tcs-grid {
+    grid-template-columns: 1fr;
+  }
+  .tcs-tabs-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 20px;
+  }
+}

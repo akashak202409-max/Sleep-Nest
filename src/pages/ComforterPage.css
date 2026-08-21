@@ -1,0 +1,168 @@
+.comforter-page { font-family: 'Inter', sans-serif; color: #0F1F33; }
+.cp-h1 { font-family: 'Playfair Display', serif; font-size: 56px; color: #1E3A5F; margin-bottom: 16px; }
+.cp-h2 { font-family: 'Playfair Display', serif; font-size: 36px; color: #1E3A5F; margin-bottom: 32px; }
+.cp-h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: #1E3A5F; margin-bottom: 24px; }
+.cp-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.text-center { text-align: center; }
+.cp-btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; cursor: pointer; transition: 0.3s; }
+.cp-btn-primary { background: #1E3A5F; color: #FFFFFF; border: 1px solid #1E3A5F; }
+.cp-btn-primary:hover { background: #152A44; }
+.cp-btn-outline { background: transparent; color: #1E3A5F; border: 2px solid #C9A876; }
+.cp-btn-outline:hover { background: #F8F5EF; }
+
+/* Hero */
+.cp-hero { display: flex; min-height: 500px; }
+.cp-hero-left { flex: 0 0 55%; background: #F8F5EF; display: flex; align-items: center; padding: 60px; }
+.cp-hero-content { max-width: 500px; }
+.cp-tag-pill { display: inline-block; padding: 6px 12px; background: #C9A876; color: #FFFFFF; font-size: 12px; font-weight: 700; border-radius: 999px; margin-bottom: 24px; }
+.cp-sub { font-size: 18px; color: #6B7A8F; line-height: 1.6; margin-bottom: 32px; }
+.cp-hero-actions { display: flex; gap: 16px; }
+.cp-hero-right { flex: 0 0 45%; }
+.cp-hero-right img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Season Tabs */
+.cp-season-sec { padding: 40px 0; background: #FFFFFF; }
+.cp-tabs-row { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 16px; }
+.cp-season-tab { padding: 12px 24px; background: #F8F5EF; border: 1px solid #E8DCC4; border-radius: 999px; cursor: pointer; text-align: center; min-width: 150px; }
+.cp-season-tab.active, .cp-season-tab:hover { background: #1E3A5F; color: #FFFFFF; border-color: #1E3A5F; }
+.cp-season-tab h4 { margin: 0 0 4px; font-weight: 600; font-size: 15px; }
+.cp-season-tab p { margin: 0; font-size: 12px; opacity: 0.8; }
+
+/* Fill Cards */
+.cp-fill-sec { padding: 40px 0 80px; background: #FFFFFF; }
+.cp-fill-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.cp-fill-card { border-radius: 12px; overflow: hidden; border: 1px solid #E8DCC4; text-align: center; padding-bottom: 16px; }
+.cp-fill-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 16px; }
+.cp-fill-card h4 { font-family: 'Playfair Display'; font-size: 18px; color: #1E3A5F; margin: 0 0 8px; }
+.cp-fill-card p { font-size: 13px; color: #6B7A8F; padding: 0 16px; margin-bottom: 16px; }
+.cp-fill-link { color: #C9A876; font-weight: 600; text-decoration: none; font-size: 14px; }
+
+/* Grid layout */
+.cp-products-section { padding: 60px 0; background: #F8F5EF; }
+.cp-grid-layout { display: grid; grid-template-columns: 280px 1fr; gap: 40px; }
+
+/* Sidebar */
+.cp-sidebar { background: #FFFFFF; padding: 24px; border-radius: 12px; position: sticky; top: 100px; height: max-content; }
+.cp-sidebar h3 { font-family: 'Playfair Display'; font-size: 20px; margin-bottom: 24px; }
+.cp-filter-group { margin-bottom: 24px; border-bottom: 1px solid #E8DCC4; padding-bottom: 24px; }
+.cp-filter-group h4 { font-size: 14px; margin-bottom: 12px; }
+.cp-checkbox { display: flex; gap: 8px; font-size: 14px; margin-bottom: 8px; cursor: pointer; color: #4b5563; }
+.cp-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.cp-chip { padding: 6px 12px; border: 1px solid #E8DCC4; border-radius: 16px; font-size: 12px; cursor: pointer; background: transparent; }
+.cp-swatch { width: 24px; height: 24px; border-radius: 50%; border: 1px solid #ccc; cursor: pointer; }
+.cp-swatches-wrap { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* Product Grid */
+.cp-products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.cp-product-card { background: #FFFFFF; border-radius: 16px; overflow: hidden; border: 1px solid #E8DCC4; display: flex; flex-direction: column; position: relative; transition: 0.2s; }
+.cp-product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(30,58,95,0.08); }
+.cp-pc-img-wrap { position: relative; width: 100%; padding-bottom: 75%; overflow: hidden; }
+.cp-pc-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+.cp-pc-badge { position: absolute; top: 12px; left: 12px; background: #D97757; color: white; font-size: 12px; padding: 4px 8px; border-radius: 4px; font-weight: 700; }
+.cp-pc-wishlist { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; background: white; border: none; color: #6B7A8F; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.cp-season-icon { position: absolute; bottom: 12px; right: 12px; font-size: 20px; }
+.cp-pc-hover-action { position: absolute; bottom: 0; left: 0; width: 100%; padding: 16px; background: linear-gradient(transparent, rgba(0,0,0,0.4)); opacity: 0; transition: 0.2s; display: flex; justify-content: center; }
+.cp-product-card:hover .cp-pc-hover-action { opacity: 1; }
+.cp-pc-hover-action .cp-btn { width: 100%; padding: 10px; }
+
+.cp-pc-details { padding: 16px; display: flex; flex-direction: column; flex: 1; }
+.cp-pc-features { display: flex; gap: 8px; margin-bottom: 8px; }
+.cp-pc-pill { font-size: 10px; padding: 2px 6px; background: #E8DCC4; border-radius: 4px; color: #1E3A5F; font-weight: 600; text-transform: uppercase; }
+.cp-pc-name { font-size: 16px; font-weight: 600; color: #1E3A5F; margin: 0 0 8px; line-height: 1.3; }
+.cp-pc-rating { font-size: 13px; color: #0F1F33; margin-bottom: 8px; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+.cp-pc-rating span { color: #6B7A8F; font-weight: 400; }
+.cp-star-filled { color: #C9A876; fill: #C9A876; }
+.cp-pc-sizes { display: flex; gap: 6px; margin-bottom: 12px; }
+.cp-s-chip { font-size: 11px; padding: 2px 6px; border: 1px solid #E8DCC4; border-radius: 4px; color: #6B7A8F; }
+.cp-pc-price-row { margin-top: auto; display: flex; align-items: baseline; gap: 8px; }
+.cp-pc-price { font-size: 18px; font-weight: 700; color: #1E3A5F; }
+.cp-pc-orig { font-size: 14px; text-decoration: line-through; color: #6B7A8F; }
+.cp-pc-micro { font-size: 11px; color: #7BA098; margin-bottom: 4px; }
+
+/* GSM Slider */
+.cp-gsm-sec { padding: 80px 0; background: #E8DCC4; text-align: center; }
+.cp-gsm-scale { display: flex; justify-content: space-between; align-items: center; max-width: 900px; margin: 40px auto; position: relative; }
+.cp-gsm-scale::before { content: ''; position: absolute; top: 30px; left: 0; width: 100%; height: 2px; background: #C9A876; z-index: 1; }
+.cp-gsm-stop { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; width: 25%; }
+.cp-gsm-dot { width: 60px; height: 60px; background: #FFFFFF; border: 2px solid #1E3A5F; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #1E3A5F; margin-bottom: 12px; transition: 0.3s; }
+.cp-gsm-stop:hover .cp-gsm-dot { transform: scale(1.1); background: #1E3A5F; color: #FFFFFF; }
+.cp-gsm-text { font-size: 14px; color: #0F1F33; font-weight: 500; }
+
+/* Fill Comparison */
+.cp-science-sec { padding: 80px 0; background: #FFFFFF; }
+.cp-science-row { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 60px; }
+.cp-science-row:last-child { margin-bottom: 0; }
+.cp-science-row.reverse { direction: rtl; }
+.cp-science-row.reverse > * { direction: ltr; }
+.cp-sc-img img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 16px; }
+.cp-sc-text h3 { font-family: 'Playfair Display'; font-size: 28px; color: #1E3A5F; margin: 0 0 16px; }
+.cp-sc-text p { font-size: 16px; color: #6B7A8F; line-height: 1.6; }
+
+/* Mood Boards */
+.cp-mood-sec { padding: 80px 0; background: #F8F5EF; }
+.cp-mood-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.cp-mood-card { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 16/9; }
+.cp-mood-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+.cp-mood-card:hover img { transform: scale(1.05); }
+.cp-mood-text { position: absolute; bottom: 0; left: 0; width: 100%; padding: 24px; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; }
+.cp-mood-text h3 { font-family: 'Playfair Display'; font-size: 24px; margin: 0 0 4px; }
+.cp-mood-text p { font-size: 14px; margin: 0; opacity: 0.9; }
+
+/* Carousel */
+.cp-carousel-sec { padding: 80px 0; background: #FFFFFF; }
+.cp-carousel { display: flex; gap: 24px; overflow-x: auto; padding-bottom: 24px; }
+.cp-carousel .cp-product-card { flex: 0 0 300px; }
+
+/* Reviews */
+.cp-reviews-sec { padding: 80px 0; background: #1E3A5F; color: white; }
+.cp-reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.cp-review-card { background: rgba(255,255,255,0.1); padding: 24px; border-radius: 12px; }
+.cp-review-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 16px; }
+
+/* Care & Size Guide */
+.cp-info-sec { padding: 80px 0; background: #FFFFFF; }
+.cp-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+.cp-care-tips { list-style: none; padding: 0; margin: 0 0 24px; }
+.cp-care-tips li { padding: 12px 0; border-bottom: 1px solid #E8DCC4; display: flex; gap: 12px; font-size: 15px; color: #6B7A8F; }
+.cp-table-wrap { overflow-x: auto; }
+.cp-table { width: 100%; border-collapse: collapse; }
+.cp-table th, .cp-table td { padding: 12px; border-bottom: 1px solid #E8DCC4; text-align: left; font-size: 14px; color: #6B7A8F; }
+.cp-table th { background: #F8F5EF; font-weight: 600; color: #1E3A5F; }
+.cp-table td:first-child { color: #0F1F33; font-weight: 600; }
+
+/* Bundle Banner */
+.cp-bundle-banner { background: #C9A876; padding: 40px 0; text-align: center; }
+.cp-bundle-inner h2 { margin: 0; color: white; font-family: 'Playfair Display'; font-size: 28px; }
+
+/* FAQ & Related */
+.cp-faq-sec { padding: 0 0 80px 0; background: #FFFFFF; }
+.cp-accordion { max-width: 800px; margin: 0 auto; }
+.cp-accordion details { margin-bottom: 16px; border-bottom: 1px solid #E8DCC4; }
+.cp-accordion summary { font-size: 16px; font-weight: 600; color: #0F1F33; padding: 16px 0; cursor: pointer; list-style: none; }
+.cp-accordion summary::-webkit-details-marker { display: none; }
+.cp-accordion details p { padding: 0 0 16px 0; color: #6B7A8F; font-size: 15px; margin: 0; line-height: 1.5; }
+
+.cp-related-section { padding: 60px 0; background: #F8F5EF; }
+.cp-related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.cp-related-card { text-decoration: none; text-align: center; display: block; }
+.cp-rel-img { aspect-ratio: 1; border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+.cp-rel-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+.cp-related-card:hover .cp-rel-img img { transform: scale(1.05); }
+.cp-related-card h4 { font-size: 16px; color: #0F1F33; margin: 0; }
+
+@media (max-width: 992px) {
+  .cp-hero { flex-direction: column; }
+  .cp-grid-layout { grid-template-columns: 1fr; }
+  .cp-sidebar { position: static; }
+  .cp-science-row, .cp-mood-grid, .cp-info-grid { grid-template-columns: 1fr; }
+  .cp-science-row.reverse { direction: ltr; }
+}
+@media (max-width: 768px) {
+  .cp-fill-grid { grid-template-columns: repeat(2, 1fr); }
+  .cp-products-grid { grid-template-columns: repeat(2, 1fr); }
+  .cp-reviews-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .cp-products-grid { grid-template-columns: 1fr; }
+  .cp-related-grid { grid-template-columns: repeat(2, 1fr); }
+}

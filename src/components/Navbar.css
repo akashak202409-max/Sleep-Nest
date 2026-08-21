@@ -65,7 +65,7 @@
 
 /* 2. Main Header styles */
 .main-header {
-  background-color: var(--accent);
+  background-color: var(--secondary);
   color: var(--primary);
   padding: 14px 24px;
   border-bottom: 1px solid var(--border);
@@ -182,7 +182,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1.5px solid var(--accent);
+  border: 1.5px solid var(--secondary);
 }
 
 /* 3. Sub Navigation styles */

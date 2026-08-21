@@ -1,0 +1,139 @@
+.new-arrival-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-light);
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.new-arrival-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.nac-image-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 75%;
+  overflow: hidden;
+  background-color: var(--soft-beige);
+}
+
+.nac-image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.new-arrival-card:hover .nac-image-container img {
+  transform: scale(1.05);
+}
+
+.nac-shop-btn-wrapper {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  z-index: 2;
+}
+
+.nac-shop-btn {
+  background-color: #5c38c9; /* Purple from screenshot */
+  color: #ffffff;
+  border: 1.5px solid #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 4px 12px rgba(92, 56, 201, 0.2);
+}
+
+.nac-shop-btn:hover {
+  background-color: #492bb0;
+}
+
+.nac-body {
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.nac-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+}
+
+.nac-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.nac-price {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.nac-orig-price {
+  font-size: 16px;
+  color: var(--gray-400);
+  text-decoration: line-through;
+  font-weight: 600;
+}
+
+.nac-discount {
+  font-size: 14px;
+  font-weight: 700;
+  color: #10b981; /* Green */
+}
+
+.nac-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nac-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nac-feature-icon-wrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nac-feature-icon-wrapper.color-icon {
+  background-color: #f3e8ff; /* Light purple/pink tint */
+}
+
+.nac-feature-icon-wrapper.box-icon {
+  background-color: #ede9fe; /* Light indigo tint */
+}
+
+.nac-feature-text {
+  font-size: 14px;
+  color: var(--gray-600);
+  font-weight: 500;
+}

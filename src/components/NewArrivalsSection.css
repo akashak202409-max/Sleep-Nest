@@ -1,0 +1,180 @@
+/* New Arrivals Section Styling - Mirrored Reference Image */
+.new-arrivals-section {
+  background: #f7e6df;
+  padding-bottom: 48px;
+}
+
+.new-arrivals-banner-header {
+  background: linear-gradient(135deg, #f7ded6 0%, #f5d4c9 50%, #f7cbbb 100%);
+  padding: 24px 0 16px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.new-arrivals-banner-header::after {
+  content: '';
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 240px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+  pointer-events: none;
+}
+
+.new-arrivals-title-row {
+  max-width: 680px;
+  margin-bottom: 24px;
+}
+
+.new-arrivals-heading-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.new-outline-badge {
+  border: 2.5px solid #d96248;
+  color: #d96248;
+  background: #ffffff;
+  padding: 2px 12px;
+  border-radius: 10px;
+  font-weight: 900;
+  font-size: 30px;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  box-shadow: 0 2px 8px rgba(217, 98, 72, 0.12);
+}
+
+.new-arrivals-title {
+  font-size: 38px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.new-arrivals-subtitle {
+  font-size: 15px;
+  color: #4b5563;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Main Pill Toggles */
+.new-arrivals-main-pills {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.main-pill-btn {
+  padding: 10px 32px;
+  border-radius: 28px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.main-pill-btn.active {
+  background: #e6685b;
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(230, 104, 91, 0.3);
+}
+
+.main-pill-btn:not(.active) {
+  background: #ffffff;
+  border: 1.5px solid #374151;
+  color: #1f2937;
+}
+
+.main-pill-btn:not(.active):hover {
+  background: #f9fafb;
+}
+/* Subtabs */
+.tcs-tabs-container {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 40px;
+  padding: 4px 12px;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.tcs-tab {
+  background: transparent;
+  border: none;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gray-500);
+  cursor: pointer;
+  position: relative;
+  text-transform: capitalize;
+  transition: color 0.2s ease;
+}
+
+.tcs-tab:hover {
+  color: var(--text-dark);
+}
+
+.tcs-tab.active {
+  color: var(--primary);
+}
+
+.tcs-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 10px;
+  right: 10px;
+  height: 3px;
+  background-color: var(--accent);
+  border-radius: 2px;
+}
+
+/* Product Cards Grid - Responsive One Screen Frame View */
+.new-arrivals-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .new-arrivals-cards-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 16px;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .new-arrivals-cards-grid::-webkit-scrollbar {
+    height: 6px;
+  }
+  .new-arrivals-cards-grid::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .new-arrivals-cards-grid::-webkit-scrollbar-thumb {
+    background: var(--gray-300);
+    border-radius: 4px;
+  }
+
+  .new-arrivals-cards-grid > * {
+    flex: 0 0 60%;
+    scroll-snap-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .new-arrivals-cards-grid > * {
+    flex: 0 0 85%;
+  }
+}
