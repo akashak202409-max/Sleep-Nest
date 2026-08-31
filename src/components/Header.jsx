@@ -5,7 +5,7 @@ import { useApp } from '../context/AppContext';
 import { navLinks } from '../data/products';
 import {
   Search, ShoppingCart, Heart, User, MapPin, Phone,
-  ChevronDown, X, Menu, Zap, Tag, LogIn
+  ChevronDown, X, Menu, Zap, Tag, LogIn, Shield
 } from 'lucide-react';
 import logoImg from '../assets/logo.png';
 import './Header.css';
@@ -155,9 +155,9 @@ export default function Header() {
               </Link>
 
               {/* Account */}
-              <Link to="/account" className="action-btn icon-btn" title="Account">
+              <button className="action-btn icon-btn" title="Account" onClick={() => setMobileOpen(true)} style={{ background: 'transparent', border: 'none', cursor: 'pointer' }}>
                 <User size={19} />
-              </Link>
+              </button>
 
               {/* Cart */}
               <Link to="/cart" className="action-btn cart-pill-btn">
@@ -168,112 +168,116 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Navigation Row - Full Width Dark Navy Bar */}
-        <nav className="site-nav" ref={menuRef}>
-          <div className="nav-inner">
-            {navLinks.map((link) => (
-              <div
-                key={link.label}
-                className={`nav-item ${activeMenu === link.label ? 'active' : ''}`}
-                onMouseEnter={() => link.megaMenu && setActiveMenu(link.label)}
-                onMouseLeave={() => setActiveMenu(null)}
-              >
-                <Link to={link.path} className="nav-link">
-                  <span>{link.label}</span>
-                </Link>
 
-                {/* Mega Menu */}
-                {link.megaMenu && activeMenu === link.label && (
-                  <div className="mega-menu">
-                    <div className="mega-menu-inner">
-                      {link.megaMenu.map((section) => (
-                        <div key={section.heading} className="mega-col">
-                          <h4 className="mega-heading">{section.heading}</h4>
-                          <ul className="mega-links">
-                            {(section.items || section.links || []).map((item) => {
-                              const label = typeof item === 'string' ? item : item.label;
-                              const targetPath = typeof item === 'string' ? `${link.path}?filter=${encodeURIComponent(item)}` : item.path;
-                              return (
-                                <li key={label}>
-                                  <Link to={targetPath} className="mega-link" onClick={() => setActiveMenu(null)}>{label}</Link>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </div>
-                      ))}
-
-                      {/* Mega Menu Featured Card */}
-                      <div className="mega-promo">
-                        <div className="mega-promo-inner">
-                          <span className="mega-promo-badge">Up to 55% OFF</span>
-                          <p className="mega-promo-title">{link.label} Sale</p>
-                          <p className="mega-promo-sub">Starting ₹{link.label === 'Mattress' ? '6,999' : '12,999'}</p>
-                          <Link to={link.path} className="btn btn-gold btn-sm">Shop Now</Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </nav>
       </header>
 
-      {/* Mobile Drawer */}
+      {/* Profile / Mobile Drawer */}
       {mobileOpen && (
         <div className="mobile-overlay" onClick={() => setMobileOpen(false)}>
-          <div className="mobile-drawer" onClick={(e) => e.stopPropagation()}>
-            <div className="mobile-header">
-              <Link to="/" onClick={() => setMobileOpen(false)} className="logo-link">
-                <img src={logoImg} alt="SleepNest Logo" className="header-logo-img mobile" />
-              </Link>
-              <button onClick={() => setMobileOpen(false)}><X size={24} /></button>
-            </div>
-
-            <div className="mobile-search">
-              <Search size={16} />
-              <input
-                type="text"
-                placeholder="Search products..."
-                value={searchQuery}
-                onChange={(e) => dispatch({ type: 'SET_SEARCH', payload: e.target.value })}
-              />
-            </div>
-
-            <div className="mobile-nav">
-              {navLinks.map((link) => (
-                <div key={link.label} className="mobile-nav-item">
-                  <button
-                    className="mobile-nav-btn"
-                    onClick={() => setMobileExpanded(mobileExpanded === link.label ? null : link.label)}
-                  >
-                    <span>{link.label}</span>
-                    {link.megaMenu && <ChevronDown size={16} className={mobileExpanded === link.label ? 'rotated' : ''} />}
-                  </button>
-                  {link.megaMenu && mobileExpanded === link.label && (
-                    <div className="mobile-submenu">
-                      {link.megaMenu.map((section) => (
-                        <div key={section.heading}>
-                          <p className="mobile-sub-heading">{section.heading}</p>
-                          {section.links.map((l) => (
-                            <Link key={l.label} to={l.path} className="mobile-sub-link" onClick={() => setMobileOpen(false)}>
-                              {l.label}
-                            </Link>
-                          ))}
-                        </div>
-                      ))}
-                    </div>
-                  )}
+          <div className="profile-drawer" onClick={(e) => e.stopPropagation()}>
+            <div className="pd-header">
+              <div className="pd-user">
+                <div className="pd-avatar"><User size={20}/></div>
+                <div className="pd-user-info">
+                  <strong>AKASH AN...</strong>
+                  <a href="#" className="pd-my-profile">My Profile</a>
                 </div>
-              ))}
+              </div>
+              <div className="pd-location">
+                <div className="pd-loc-pin"><MapPin size={16}/></div>
+                <div className="pd-loc-info">
+                  <span>Tiruvannamalai</span>
+                  <strong>632326 <span className="pd-edit-icon">✎</span></strong>
+                </div>
+              </div>
             </div>
 
-            <div className="mobile-footer">
-              <Link to="/account" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} onClick={() => setMobileOpen(false)}>
-                <LogIn size={16} /> Login / Register
+            <div className="pd-pills">
+              <button className="pd-pill" onClick={() => {navigate('/cart'); setMobileOpen(false);}}>
+                <ShoppingCart size={20} color="#5c38c9"/>
+                <span>My Cart</span>
+              </button>
+              <button className="pd-pill">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5c38c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                <span>My Orders</span>
+              </button>
+              <button className="pd-pill">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5c38c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>
+                <span>Wallet</span>
+              </button>
+            </div>
+
+            <div className="pd-menu-list">
+              <a href="#" className="pd-menu-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5c38c9" strokeWidth="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                <span>Browse Categories</span>
+              </a>
+              <Link to="/stores" className="pd-menu-item" onClick={() => setMobileOpen(false)}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5c38c9" strokeWidth="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                <span>Nearby Stores</span>
               </Link>
+              <a href="#" className="pd-menu-item">
+                <Shield size={18} color="#5c38c9"/>
+                <span style={{display:'flex', alignItems:'center', gap:'8px'}}>Zense - AI Sleep Solutions <span className="pd-badge-new">New</span></span>
+                <ChevronDown size={16} className="pd-ml-auto" color="#64748b"/>
+              </a>
+              <a href="#" className="pd-menu-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                <span style={{color: '#000', fontWeight: 600}}>Live Shop</span>
+              </a>
+              <a href="#" className="pd-menu-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ea580c" strokeWidth="2"><circle cx="9" cy="9" r="2"></circle><circle cx="15" cy="15" r="2"></circle><line x1="19" y1="5" x2="5" y2="19"></line></svg>
+                <span style={{color: '#000', fontWeight: 600}}>Offers</span>
+              </a>
+              
+              <hr className="pd-divider"/>
+
+              <a href="#" className="pd-menu-item">
+                <Heart size={18} color="#000"/>
+                <span>Wishlist</span>
+              </a>
+              <a href="#" className="pd-menu-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span>Wall Makeover</span>
+              </a>
+              <a href="#" className="pd-menu-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                <span>Blog</span>
+              </a>
+              <a href="#" className="pd-menu-item">
+                <Phone size={18} color="#000"/>
+                <span>Contact Us</span>
+              </a>
+              <a href="#" className="pd-menu-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                <span>FAQs</span>
+              </a>
+              <a href="#" className="pd-menu-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                <span>Feedback</span>
+              </a>
+
+              <hr className="pd-divider"/>
+
+              <a href="#" className="pd-menu-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                <span>Design</span>
+                <ChevronDown size={16} className="pd-ml-auto" color="#64748b"/>
+              </a>
+              <a href="#" className="pd-menu-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                <span>Buying Guide</span>
+                <ChevronDown size={16} className="pd-ml-auto" color="#64748b"/>
+              </a>
+              <a href="#" className="pd-menu-item">
+                <User size={18} color="#000"/>
+                <span>About Us</span>
+                <ChevronDown size={16} className="pd-ml-auto" color="#64748b"/>
+              </a>
+            </div>
+
+            <div className="pd-footer">
+              <button className="pd-logout-btn" onClick={() => setMobileOpen(false)}>Logout</button>
             </div>
           </div>
         </div>

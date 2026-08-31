@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import './CategoryProductCard.css';
 
 export default function CategoryProductCard({ product }) {
+  const displayImage = product.images.find(img => !img.endsWith('.mp4')) || product.images[0];
+
   return (
     <Link to={`/product/${product.id}`} className="category-product-card">
       <div className="cpc-image-wrapper">
-        <img src={product.images[0]} alt={product.name} loading="lazy" />
+        <img src={displayImage} alt={product.name} loading="lazy" />
         
         {/* Badges */}
         {product.badge && (

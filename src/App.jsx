@@ -17,6 +17,7 @@ import BedsheetPage from "./pages/BedsheetPage";
 import ProtectorPage from "./pages/ProtectorPage";
 import ComforterPage from "./pages/ComforterPage";
 import PillowPage from "./pages/PillowPage";
+import StoresPage from "./pages/StoresPage";
 import './index.css';
 
 // Scroll to top on route change
@@ -110,7 +111,7 @@ function AppInner() {
           <Route path="/returns" element={<SimpleListingPage title="Returns & Refunds" />} />
           <Route path="/interiors" element={<SimpleListingPage title="SleepNest Interiors" />} />
           <Route path="/sleep-quiz" element={<SimpleListingPage title="Sleep Quiz" />} />
-          <Route path="/stores" element={<SimpleListingPage title="Our Stores" />} />
+          <Route path="/stores" element={<StoresPage />} />
           <Route path="/careers" element={<SimpleListingPage title="Careers at SleepNest" />} />
           <Route path="/privacy" element={<SimpleListingPage title="Privacy Policy" />} />
           <Route path="/terms" element={<SimpleListingPage title="Terms of Service" />} />

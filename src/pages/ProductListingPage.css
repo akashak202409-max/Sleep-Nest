@@ -280,4 +280,12 @@
   .plp-filter-bar-inner { gap: 10px; }
   .plp-sort label { display: none; }
   .plp-stat { padding: 8px 14px; }
+  
+  .product-list-view .product-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .product-list-view .product-card-image {
+    aspect-ratio: 16/9;
+  }
 }

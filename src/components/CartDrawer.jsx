@@ -29,7 +29,7 @@ const CartDrawer = ({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem
             <div className="cart-items">
               {cartItems.map((item) => (
                 <div key={item.id} className="cart-item">
-                  <img src={item.image} alt={item.name} className="cart-item-image" />
+                  <img src={item.images?.find(img => !img.endsWith('.mp4')) || item.images?.[0]} alt={item.name} className="cart-item-image" />
                   
                   <div className="cart-item-details">
                     <h4 className="cart-item-name">{item.name}</h4>

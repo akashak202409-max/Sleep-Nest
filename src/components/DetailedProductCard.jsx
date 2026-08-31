@@ -3,10 +3,13 @@ import { Star, Check } from 'lucide-react';
 import './DetailedProductCard.css';
 
 export default function DetailedProductCard({ product }) {
+  // Find the first image that is not a video for the card display
+  const displayImage = product.images.find(img => !img.endsWith('.mp4')) || product.images[0];
+
   return (
     <Link to={`/product/${product.id}`} className="detailed-product-card">
       <div className="dpc-image-container">
-        <img src={product.images[0]} alt={product.name} loading="lazy" />
+        <img src={displayImage} alt={product.name} loading="lazy" />
       </div>
       
       <div className="dpc-body">

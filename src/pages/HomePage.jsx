@@ -62,27 +62,27 @@ const categoryBanners = [
   {
     title: 'Mattress',
     path: '/mattress',
-    image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80',
+    image: '/images/generated/mattress_hero_ai.jpg',
   },
   {
     title: 'Bedsheet',
-    path: '/bedsheets',
-    image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&q=80',
+    path: '/bedsheet',
+    image: '/images/generated/category_bedsheet_stack.jpg',
   },
   {
     title: 'Protector',
-    path: '/protectors',
-    image: 'https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=600&q=80',
+    path: '/protector',
+    image: '/images/generated/protector_category.png',
   },
   {
     title: 'Comforter',
-    path: '/comforters',
-    image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&q=80',
+    path: '/comforter',
+    image: '/images/generated/comforter_hero.jpg',
   },
   {
     title: 'Pillow',
-    path: '/pillows',
-    image: 'https://images.unsplash.com/photo-1592789705501-f9ae4278a9d3?w=600&q=80',
+    path: '/pillow',
+    image: '/images/generated/pillow_hero_ai.jpg',
   },
 ];
 
@@ -315,7 +315,7 @@ export default function HomePage() {
           <div 
             className="carousel-track" 
             style={{ 
-              transform: `translateX(calc(-${currentSlide} * (80% + 16px) + 10%))`
+              transform: `translateX(calc(-${currentSlide} * 100%))`
             }}
           >
             {heroSlides.map((s, idx) => (
@@ -379,102 +379,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── UNDER HERO STRIP (PROMO SALE + WHY SLEEPNEST) ───────────── */}
-      <section className="hero-substrip-section">
-        <div className="container">
-          <div className="hero-substrip-grid">
-            {/* Card 1: Freedom Sale Countdown & Bank Offers */}
-            <div className="substrip-card sale-card">
-              <div className="sale-left">
-                <div className="freedom-badge">
-                  <span className="freedom-text">FREEDOM</span>
-                  <span className="sale-sub-badge">SALE</span>
-                </div>
-                <div className="countdown-box">
-                  <span className="countdown-title">Sale Ends In:</span>
-                  <div className="countdown-timer">
-                    <div className="time-unit">
-                      <span className="time-num">{String(timeLeft.days).padStart(2, '0')}</span>
-                      <span className="time-lbl">Days</span>
-                    </div>
-                    <span className="time-colon">:</span>
-                    <div className="time-unit">
-                      <span className="time-num">{String(timeLeft.hrs).padStart(2, '0')}</span>
-                      <span className="time-lbl">Hrs</span>
-                    </div>
-                    <span className="time-colon">:</span>
-                    <div className="time-unit">
-                      <span className="time-num">{String(timeLeft.mins).padStart(2, '0')}</span>
-                      <span className="time-lbl">Mins</span>
-                    </div>
-                    <span className="time-colon">:</span>
-                    <div className="time-unit">
-                      <span className="time-num">{String(timeLeft.secs).padStart(2, '0')}</span>
-                      <span className="time-lbl">Secs</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="sale-divider" />
-
-              <div className="sale-right">
-                <div className="bank-logos-row">
-                  <img src={iciciLogo} alt="ICICI Bank" className="bank-img-logo" title="ICICI Bank" />
-                  <img src={axisLogo} alt="Axis Bank" className="bank-img-logo bank-logo-axis" title="Axis Bank" />
-                  <img src={sbiLogo} alt="SBI Bank" className="bank-img-logo" title="SBI Bank" />
-                  <img src={hdfcLogo} alt="HDFC Bank" className="bank-img-logo" title="HDFC Bank" />
-                </div>
-                <div className="bank-offer-badge">
-                  <span className="offer-tag">Flat</span>
-                  <span className="offer-val">11% OFF &gt;&gt;</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 2: Why SleepNest Benefits */}
-            <div className="substrip-card why-card">
-              <div className="why-title">
-                <span>Why</span>
-                <strong>SleepNest?</strong>
-              </div>
-              <div className="why-features">
-                <div className="why-item">
-                  <div className="why-icon-wrap">
-                    <Smile size={22} className="why-icon" />
-                    <div className="icon-arc" />
-                  </div>
-                  <span className="why-label">25 Lakhs+<br />Customers</span>
-                </div>
-
-                <div className="why-item">
-                  <div className="why-icon-wrap">
-                    <Truck size={22} className="why-icon" />
-                    <div className="icon-arc" />
-                  </div>
-                  <span className="why-label">Free Shipping</span>
-                </div>
-
-                <div className="why-item">
-                  <div className="why-icon-wrap">
-                    <Wrench size={22} className="why-icon" />
-                    <div className="icon-arc" />
-                  </div>
-                  <span className="why-label">Free Installation</span>
-                </div>
-
-                <div className="why-item">
-                  <div className="why-icon-wrap">
-                    <ShieldCheck size={22} className="why-icon" />
-                    <div className="icon-arc" />
-                  </div>
-                  <span className="why-label">Best Warranty</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ── SHOP BY CATEGORIES SECTION ──────────────────────────── */}
       <section className="shop-categories-section">
@@ -659,7 +563,7 @@ export default function HomePage() {
 
 
       {/* ── TESTIMONIALS ─────────────────────────────────────────── */}
-      <section className="section" style={{ background: 'var(--cream)' }}>
+      <section className="section" style={{ background: '#ffffff' }}>
         <div className="container">
           <div className="section-header" style={{ textAlign: 'center', marginBottom: '40px' }}>
             <h2 className="section-title">What Our Customers Say</h2>
@@ -676,23 +580,19 @@ export default function HomePage() {
             </div>
           </div>
           <div className="testimonials-grid">
-            {testimonials.map((t) => (
+            {testimonials.slice(0, 3).map((t) => (
               <div key={t.id} className="testimonial-card">
-                <div className="testimonial-header">
+                <div className="testimonial-avatar-wrap">
                   <img src={t.avatar} alt={t.name} className="testimonial-avatar" />
-                  <div>
-                    <p className="testimonial-name">{t.name}</p>
-                    <p className="testimonial-location">{t.location}</p>
-                  </div>
-                  <div className="testimonial-stars">
-                    {[1,2,3,4,5].map((s) => (
-                      <Star key={s} size={12} fill={s <= t.rating ? '#f59e0b' : 'none'} color="#f59e0b" />
-                    ))}
-                  </div>
                 </div>
-                <p className="testimonial-product">Verified Purchase: {t.product}</p>
-                <p className="testimonial-text">"{t.text}"</p>
-                <p className="testimonial-date">{t.date}</p>
+                <div className="testimonial-content">
+                  <p className="testimonial-text">
+                    "{t.text}"
+                  </p>
+                  <p className="testimonial-author">
+                    {t.name}, {new Date().getFullYear()}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

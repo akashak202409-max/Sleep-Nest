@@ -67,13 +67,19 @@ export default function ProductCard({ product, compact = false }) {
 
       {/* Image */}
       <div className="product-card-image">
-        <img
-          src={product.images?.[hoveredImg] || product.images?.[0]}
-          alt={product.name}
-          loading="lazy"
-          onMouseEnter={() => product.images?.length > 1 && setHoveredImg(1)}
-          onMouseLeave={() => setHoveredImg(0)}
-        />
+        {(() => {
+          const images = product.images?.filter(img => !img.endsWith('.mp4')) || [];
+          const displayImage = images[hoveredImg] || images[0];
+          return (
+            <img
+              src={displayImage}
+              alt={product.name}
+              loading="lazy"
+              onMouseEnter={() => images.length > 1 && setHoveredImg(1)}
+              onMouseLeave={() => setHoveredImg(0)}
+            />
+          );
+        })()}
         {/* Hover Actions — use buttons instead of links to avoid nested <a> */}
         <div className="product-card-actions">
           <button

@@ -1,11 +1,11 @@
-/* New Arrivals Section Styling - Mirrored Reference Image */
+/* New Arrivals Section Styling - Match Design System */
 .new-arrivals-section {
-  background: #f7e6df;
+  background: var(--soft-beige, #f8f6f0);
   padding-bottom: 48px;
 }
 
 .new-arrivals-banner-header {
-  background: linear-gradient(135deg, #f7ded6 0%, #f5d4c9 50%, #f7cbbb 100%);
+  background: linear-gradient(135deg, #f8f6f0 0%, #edeaf4 50%, #fdfcf9 100%);
   padding: 24px 0 16px;
   margin-bottom: 20px;
   position: relative;
@@ -20,7 +20,7 @@
   transform: translateY(-50%);
   width: 240px;
   height: 180px;
-  background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+  background: radial-gradient(circle, rgba(92, 56, 201, 0.05) 0%, rgba(255,255,255,0) 70%);
   pointer-events: none;
 }
 
@@ -37,8 +37,8 @@
 }
 
 .new-outline-badge {
-  border: 2.5px solid #d96248;
-  color: #d96248;
+  border: 2.5px solid #5c38c9;
+  color: #5c38c9;
   background: #ffffff;
   padding: 2px 12px;
   border-radius: 10px;
@@ -46,7 +46,7 @@
   font-size: 30px;
   letter-spacing: 1px;
   line-height: 1.1;
-  box-shadow: 0 2px 8px rgba(217, 98, 72, 0.12);
+  box-shadow: 0 2px 8px rgba(92, 56, 201, 0.12);
 }
 
 .new-arrivals-title {
@@ -77,15 +77,15 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-fast, 0.2s);
 }
 
 .main-pill-btn.active {
-  background: #e6685b;
+  background: #5c38c9;
   color: #ffffff;
   border: none;
   font-weight: 700;
-  box-shadow: 0 4px 14px rgba(230, 104, 91, 0.3);
+  box-shadow: 0 4px 14px rgba(92, 56, 201, 0.3);
 }
 
 .main-pill-btn:not(.active) {

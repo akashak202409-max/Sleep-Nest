@@ -23,6 +23,11 @@ export default function ProductDetailPage() {
   const [pincode, setPincode] = useState('600026');
   const [isEditingPincode, setIsEditingPincode] = useState(false);
   const [openFaq, setOpenFaq] = useState(0);
+  const [showVariantModal, setShowVariantModal] = useState(false);
+  const [tempSizeGroup, setTempSizeGroup] = useState('Single');
+  const [tempDimension, setTempDimension] = useState('72x30 Inch');
+  const [tempThickness, setTempThickness] = useState('5');
+  const [showFbtDrawer, setShowFbtDrawer] = useState(false);
 
   if (!product) {
     return (
@@ -37,6 +42,7 @@ export default function ProductDetailPage() {
   const handleAddToCart = () => {
     for (let i = 0; i < qty; i++) addToCart(product, selectedSize);
     showToast('Added to cart!');
+    setShowFbtDrawer(true);
   };
 
   const seriesData = [
@@ -70,22 +76,49 @@ export default function ProductDetailPage() {
           <div className="pdp-left-col">
             <div className="pdp-images-wrapper">
               <div className="pdp-thumbs-new">
-                {product.images?.map((img, i) => (
-                  <button
-                    key={i}
-                    className={`pdp-thumb-img ${selectedImg === i ? 'active' : ''}`}
-                    onClick={() => setSelectedImg(i)}
-                  >
-                    <img src={img} alt={`View ${i + 1}`} />
-                  </button>
-                ))}
+                {product.images?.map((media, i) => {
+                  const isVideo = media.endsWith('.mp4');
+                  return (
+                    <button
+                      key={i}
+                      className={`pdp-thumb-img ${selectedImg === i ? 'active' : ''}`}
+                      onClick={() => setSelectedImg(i)}
+                    >
+                      {isVideo ? (
+                        <video src={media} style={{width:'100%', height:'100%', objectFit:'cover'}} muted playsInline />
+                      ) : (
+                        <img src={media} alt={`View ${i + 1}`} />
+                      )}
+                      {isVideo && (
+                        <div className="video-play-icon">▶</div>
+                      )}
+                    </button>
+                  );
+                })}
               </div>
               <div className="pdp-main-img-container">
-                <img
-                  src={product.images?.[selectedImg] || product.images?.[0]}
-                  alt={product.name}
-                  className="pdp-hero-img"
-                />
+                {(() => {
+                  const currentMedia = product.images?.[selectedImg] || product.images?.[0];
+                  if (currentMedia?.endsWith('.mp4')) {
+                    return (
+                      <video
+                        src={currentMedia}
+                        className="pdp-hero-img"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      />
+                    );
+                  }
+                  return (
+                    <img
+                      src={currentMedia}
+                      alt={product.name}
+                      className="pdp-hero-img"
+                    />
+                  );
+                })()}
                 
                 <div className="pdp-img-controls">
                   <button className="img-ctrl-btn"><img src="/icons/similar.svg" alt="" style={{width: 14, display:'none'}}/><Maximize size={14}/> Similar Product</button>
@@ -194,7 +227,7 @@ export default function ProductDetailPage() {
                 <span className="size-options-badge">116 options</span>
               </div>
               <div className="size-actions">
-                <button className="size-dropdown-btn">
+                <button className="size-dropdown-btn" onClick={() => setShowVariantModal(true)}>
                   {selectedSize} <ChevronDown size={16}/>
                 </button>
                 <button className="add-to-cart-btn-large" onClick={handleAddToCart}>
@@ -300,27 +333,100 @@ export default function ProductDetailPage() {
         </div>
       </div>
 
-      {/* Explore More & Login */}
-      <div className="explore-login-section">
+      {/* ── MATTRESS LAYERS SECTION ──────────────────────────────── */}
+      <div className="pdp-mattress-layers-section">
         <div className="container">
-          <div className="explore-header">
-            <hr/><span>More ways to explore</span><hr/>
+          <h2 className="layers-title">Mattress Layers</h2>
+          
+          <div className="layers-top-grid">
+            <div className="layers-img-box">
+              <img src="/images/generated/mattress_layers_3d.jpg" alt="Mattress Layers 3D" />
+            </div>
+            <div className="layers-list-box">
+              <div className="layer-item">
+                <div className="layer-num">1</div>
+                <div className="layer-text">
+                  <h4>Cloud Rest</h4>
+                  <p>Reduces stress on hips, shoulders, and joints</p>
+                </div>
+              </div>
+              <div className="layer-item">
+                <div className="layer-num">2</div>
+                <div className="layer-text">
+                  <h4>Luxe Layer</h4>
+                  <p>Maintains Spinal Alignment</p>
+                </div>
+              </div>
+              <div className="layer-item">
+                <div className="layer-num">3</div>
+                <div className="layer-text">
+                  <h4>Air Flow Quilted Base</h4>
+                  <p>Breathable, Airy, Stable base</p>
+                </div>
+              </div>
+              <div className="layer-item">
+                <div className="layer-num">4</div>
+                <div className="layer-text">
+                  <h4>EdgeShield Technology Foam Encasement</h4>
+                  <p>Reinforced foam border that prevents edge sagging and maximizes the usable sleep area.</p>
+                </div>
+              </div>
+              <div className="layer-item">
+                <div className="layer-num">5</div>
+                <div className="layer-text">
+                  <h4>GermanLuxe Technology Precision Pocket Springs</h4>
+                  <p>Individually wrapped springs that provide targeted body support and minimize partner disturbance.</p>
+                </div>
+              </div>
+              <div className="layer-item">
+                <div className="layer-num">6</div>
+                <div className="layer-text">
+                  <h4>Latex Copper Infused Tech</h4>
+                  <p>Pressure-relieving, Antimicrobial, and recovery-enhancing power of copper</p>
+                </div>
+              </div>
+              <div className="layer-item">
+                <div className="layer-num">7</div>
+                <div className="layer-text">
+                  <h4>Skin Safe Fabric</h4>
+                  <p>Dermatologist-Tested & Hypoallergenic</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="explore-buttons">
-            <button className="exp-btn"><Play size={16}/> Live Product Demo <ChevronRight size={16}/></button>
-            <button className="exp-btn"><MapPin size={16}/> Store Near Me <ChevronRight size={16}/></button>
-            <button className="exp-btn"><MessageCircle size={16}/> Chat with us <ChevronRight size={16}/></button>
+
+          <div className="layers-bottom-grid">
+            <div className="layers-info-box">
+              <div className="layers-badge">Pocket Spring Mattress</div>
+              <h3>Zero Partner Disturbance For Deeper, Undisrupted Sleep</h3>
+              <p>Ever wake up tired even after a full night's sleep? That often happens when your partner's movements keep disturbing your rest. The Pocket Spring Mattress features individually wrapped springs that move independently — so your sleep stays yours, no matter how much your partner tosses and turns.</p>
+              <ul className="layers-benefits-list">
+                <li>🛏️ Supports Natural Spinal Alignment</li>
+                <li>🌬️ Breathable Open-Spring Structure for Cooler Sleep</li>
+              </ul>
+            </div>
+            <div className="layers-lifestyle-img">
+              <img src="/images/generated/mattress_sleeping_cross_section.jpg" alt="Zero Disturbance Sleep" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── PDP TABS & PROMO BANNER ──────────────────────────────── */}
+      <div className="pdp-tabs-section">
+        <div className="container">
+          <div className="pdp-tabs-row">
+            <button className="pdp-tab active">Product Detail</button>
+            <button className="pdp-tab">Specifications</button>
+            <button className="pdp-tab">Dimensions</button>
           </div>
           
-          <div className="login-banner">
-            <div className="lb-left">
-              <img src="/icons/login-illustration.svg" alt="" style={{height: 60, display:'none'}}/>
+          <div className="pdp-promo-banner">
+            <div className="promo-banner-text">
+              <h4>Buy 2 Mattresses Get 1 Pillow Free</h4>
+              <p>Add 3 products in cart for the offer to apply</p>
             </div>
-            <div className="lb-text">
-              <h4>Log in to unlock more offers!</h4>
-              <p>Get up to ₹1500 Wakefit Cash on 1st order</p>
-            </div>
-            <button className="lb-login-btn">Login</button>
+            <button className="promo-shop-btn">Shop Now</button>
           </div>
         </div>
       </div>
@@ -500,6 +606,284 @@ export default function ProductDetailPage() {
           </div>
         </div>
       </div>
+      
+      {/* VARIANT OVERLAY MODAL */}
+      {showVariantModal && (
+        <div className="variant-modal-overlay" onClick={() => setShowVariantModal(false)}>
+          <div className="variant-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="vm-header">
+              <h2>Choose a Variant</h2>
+              <button className="vm-close-btn" onClick={() => setShowVariantModal(false)}>
+                <X size={16} />
+              </button>
+            </div>
+            
+            <div className="vm-content">
+              <div className="vm-product-preview">
+                <img src={product.images[0]} alt="" />
+                <span>Wakefit ShapeSense Orthopedic Classic Memory Foam Mattress | 10 Years Warranty</span>
+              </div>
+              
+              <div className="vm-video-banner">
+                <span>🎯 <a href="#" style={{textDecoration: 'underline'}}>40 seconds of video will save you from ordering a wrong size</a></span>
+              </div>
+              
+              <div className="vm-section">
+                <h4>Size Group</h4>
+                <div className="vm-pill-grid vm-grid-5">
+                  {['Single', 'Diwan', 'Queen', 'King', 'Custom'].map(sg => (
+                    <button key={sg} className={`vm-pill ${tempSizeGroup === sg ? 'active' : ''}`} onClick={() => setTempSizeGroup(sg)}>
+                      {sg}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="vm-section">
+                <h4>Dimension</h4>
+                <div className="vm-pill-grid vm-grid-4">
+                  {['72x30 Inch', '72x35 Inch', '72x36 Inch', '72x42 Inch', '75x30 Inch', '75x35 Inch', '75x36 Inch', '75x42 Inch', '78x30 Inch', '78x35 Inch', '78x36 Inch', '78x42 Inch'].map(dim => (
+                    <button key={dim} className={`vm-pill ${tempDimension === dim ? 'active' : ''}`} onClick={() => setTempDimension(dim)}>
+                      {dim}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="vm-section">
+                <h4>Thickness</h4>
+                <div className="vm-pill-grid vm-grid-4">
+                  {['5', '6', '8', '10'].map(th => (
+                    <button key={th} className={`vm-pill ${tempThickness === th ? 'active' : ''}`} onClick={() => setTempThickness(th)}>
+                      {th}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="vm-helper">
+                <div className="vm-helper-icon">👍</div>
+                <div className="vm-helper-text">
+                  <strong>({tempThickness} inch Thickness)</strong><br/>
+                  Best if the sleepers weighs between than 50 kg - 55 kg
+                </div>
+              </div>
+              
+              <button 
+                className="vm-confirm-btn" 
+                onClick={() => {
+                  setSelectedSize(`${tempDimension} (${tempSizeGroup})`);
+                  setShowVariantModal(false);
+                }}
+              >
+                Confirm Variant
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* FBT DRAWER OVERLAY */}
+      {showFbtDrawer && (
+        <div className="fbt-drawer-overlay" onClick={() => setShowFbtDrawer(false)}>
+          <div className="fbt-drawer" onClick={(e) => e.stopPropagation()}>
+            <div className="fbt-header">
+              <div className="fbt-header-title">
+                <h2>Frequently Bought Together</h2>
+                <button className="fbt-close-btn" onClick={() => setShowFbtDrawer(false)}>
+                  <X size={16} />
+                </button>
+              </div>
+              <div className="fbt-note">
+                <strong>Note:</strong> <span className="fbt-note-pill">Product size below match your mattress size</span>
+              </div>
+            </div>
+            
+            <div className="fbt-content">
+              {/* Card 1: Protector */}
+              <div className="fbt-card">
+                <div className="fbt-card-title">Protector</div>
+                <div className="fbt-card-body">
+                  <div className="fbt-img-col">
+                    <img src="/images/generated/fbt_protector.jpg" alt="Protector" />
+                  </div>
+                  <div className="fbt-details-col">
+                    <div className="fbt-choice-title">Choose Color</div>
+                    
+                    <label className="fbt-option">
+                      <div className="fbt-option-info">
+                        <div className="fbt-swatch" style={{background: '#cba87c'}}></div>
+                        <div>
+                          <div className="fbt-opt-name">Beige</div>
+                          <div className="fbt-opt-price"><strong>₹553</strong> <del>₹852</del></div>
+                        </div>
+                      </div>
+                      <div className="fbt-radio-circle"></div>
+                    </label>
+
+                    <label className="fbt-option">
+                      <div className="fbt-option-info">
+                        <div className="fbt-swatch" style={{background: '#111827'}}></div>
+                        <div>
+                          <div className="fbt-opt-name">Blue</div>
+                          <div className="fbt-opt-price"><strong>₹554</strong> <del>₹852</del></div>
+                        </div>
+                      </div>
+                      <div className="fbt-radio-circle"></div>
+                    </label>
+
+                    <label className="fbt-option">
+                      <div className="fbt-option-info">
+                        <div className="fbt-swatch" style={{background: '#6b7280'}}></div>
+                        <div>
+                          <div className="fbt-opt-name">Grey</div>
+                          <div className="fbt-opt-price"><strong>₹737</strong> <del>₹1,088</del></div>
+                        </div>
+                      </div>
+                      <div className="fbt-radio-circle"></div>
+                    </label>
+
+                    <label className="fbt-option">
+                      <div className="fbt-option-info">
+                        <div className="fbt-swatch" style={{background: '#a78bfa'}}></div>
+                        <div>
+                          <div className="fbt-opt-name">Lavendar</div>
+                          <div className="fbt-opt-price"><strong>₹872</strong> <del>₹1,228</del></div>
+                        </div>
+                      </div>
+                      <div className="fbt-radio-circle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div className="fbt-footer-pill">73% of mattress buyers also bought protectors</div>
+              </div>
+
+              {/* Card 2: Pillow */}
+              <div className="fbt-card">
+                <div className="fbt-card-title">Sleeping Pillow</div>
+                <div className="fbt-card-body">
+                  <div className="fbt-img-col">
+                    <img src="/images/generated/category_pillow.jpg" alt="Pillow" />
+                  </div>
+                  <div className="fbt-details-col">
+                    <div className="fbt-choice-title">Choose Variant</div>
+                    
+                    <label className="fbt-option">
+                      <div className="fbt-option-info">
+                        <div>
+                          <div className="fbt-opt-name">Single</div>
+                          <div className="fbt-opt-price"><strong>₹468</strong> <del>₹542</del></div>
+                        </div>
+                      </div>
+                      <div className="fbt-radio-circle"></div>
+                    </label>
+
+                    <label className="fbt-option">
+                      <div className="fbt-option-info">
+                        <div>
+                          <div className="fbt-opt-name">Set Of 2</div>
+                          <div className="fbt-opt-price"><strong>₹846</strong> <del>₹1,141</del></div>
+                        </div>
+                      </div>
+                      <div className="fbt-radio-circle"></div>
+                    </label>
+
+                    <label className="fbt-option">
+                      <div className="fbt-option-info">
+                        <div>
+                          <div className="fbt-opt-name">Set Of 4</div>
+                          <div className="fbt-opt-price"><strong>₹1,528</strong> <del>₹2,141</del></div>
+                        </div>
+                      </div>
+                      <div className="fbt-radio-circle"></div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 3: Dohar */}
+              <div className="fbt-card">
+                <div className="fbt-card-title">Dohar</div>
+                <div className="fbt-card-body">
+                  <div className="fbt-img-col">
+                    <img src="/images/generated/fbt_dohar.jpg" alt="Dohar" />
+                  </div>
+                  <div className="fbt-details-col">
+                    <div className="fbt-choice-title">Choose Color</div>
+                    
+                    <label className="fbt-option">
+                      <div className="fbt-option-info">
+                        <div className="fbt-swatch" style={{background: '#fbcfe8'}}></div>
+                        <div>
+                          <div className="fbt-opt-name">Mika Lilac</div>
+                          <div className="fbt-opt-price"><strong>₹1,514</strong> <del>₹1,860</del></div>
+                        </div>
+                      </div>
+                      <div className="fbt-radio-circle"></div>
+                    </label>
+
+                    <label className="fbt-option">
+                      <div className="fbt-option-info">
+                        <div className="fbt-swatch" style={{background: '#fed7aa'}}></div>
+                        <div>
+                          <div className="fbt-opt-name">Mika Orange</div>
+                          <div className="fbt-opt-price"><strong>₹1,628</strong> <del>₹1,999</del></div>
+                        </div>
+                      </div>
+                      <div className="fbt-radio-circle"></div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 4: Comforter */}
+              <div className="fbt-card">
+                <div className="fbt-card-title">Comforter</div>
+                <div className="fbt-card-body">
+                  <div className="fbt-img-col">
+                    <img src="/images/generated/fbt_comforter.jpg" alt="Comforter" />
+                  </div>
+                  <div className="fbt-details-col">
+                    <div className="fbt-choice-title">Choose Color</div>
+                    
+                    <label className="fbt-option">
+                      <div className="fbt-option-info">
+                        <div className="fbt-swatch" style={{background: '#374151'}}></div>
+                        <div>
+                          <div className="fbt-opt-name">Black Beauty & Night Owl</div>
+                          <div className="fbt-opt-price"><strong>₹1,850</strong> <del>₹2,104</del></div>
+                        </div>
+                      </div>
+                      <div className="fbt-radio-circle"></div>
+                    </label>
+
+                    <label className="fbt-option">
+                      <div className="fbt-option-info">
+                        <div className="fbt-swatch" style={{background: '#57534e'}}></div>
+                        <div>
+                          <div className="fbt-opt-name">Brown Stone & Night Owl</div>
+                          <div className="fbt-opt-price"><strong>₹1,850</strong> <del>₹2,104</del></div>
+                        </div>
+                      </div>
+                      <div className="fbt-radio-circle"></div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            
+            <div className="fbt-footer">
+              <div className="fbt-total">
+                <strong>₹6,537</strong> <span>1 Item <span className="info-i">i</span></span>
+              </div>
+              <button className="fbt-proceed-btn" onClick={() => navigate('/cart')}>
+                <ShoppingCart size={16}/> Proceed to Buy
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );
