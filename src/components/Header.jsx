@@ -1,4 +1,4 @@
-// SleepNest Header Component - Exact Wakefit layout mirrored
+// SleepNest Header Component - Exact Sleep Nest layout mirrored
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
@@ -169,7 +169,21 @@ export default function Header() {
         </div>
 
 
+      
+        {/* Secondary Categories Nav */}
+        <div className="categories-subnav">
+          <div className="container">
+            <nav className="subnav-list">
+              <Link to="/mattress" className="subnav-item" onClick={() => setMobileOpen(false)}>Mattress</Link>
+              <Link to="/bedsheet" className="subnav-item" onClick={() => setMobileOpen(false)}>Bedsheet</Link>
+              <Link to="/protector" className="subnav-item" onClick={() => setMobileOpen(false)}>Protector</Link>
+              <Link to="/comforter" className="subnav-item" onClick={() => setMobileOpen(false)}>Comforter</Link>
+              <Link to="/pillow" className="subnav-item" onClick={() => setMobileOpen(false)}>Pillow</Link>
+            </nav>
+          </div>
+        </div>
       </header>
+
 
       {/* Profile / Mobile Drawer */}
       {mobileOpen && (

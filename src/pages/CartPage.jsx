@@ -32,7 +32,7 @@ export default function CartPage() {
   const displayCart = cart.length > 0 ? cart : [
     {
       cartId: 'demo-1',
-      name: 'Wakefit Flipper Sofa Cum Bed - Three Seater (6\'x5\') Feet - WarpKnit Grey',
+      name: 'Sleep Nest Flipper Sofa Cum Bed - Three Seater (6\'x5\') Feet - WarpKnit Grey',
       images: [tvUnitImg],
       price: 7939,
       originalPrice: 12289,
@@ -119,11 +119,11 @@ export default function CartPage() {
               </div>
             </div>
 
-            {/* Wakefit Rewards Banner */}
+            {/* Sleep Nest Rewards Banner */}
             <div className="rewards-banner">
               <div className="rb-content">
-                <h2>Wakefit Rewards</h2>
-                <p>Claim Exclusive Rewards<br/>From Top Brands - Free with Every Wakefit Purchase</p>
+                <h2>Sleep Nest Rewards</h2>
+                <p>Claim Exclusive Rewards<br/>From Top Brands - Free with Every Sleep Nest Purchase</p>
                 <button className="rb-btn">Know More <ChevronRight size={14}/></button>
               </div>
             </div>
@@ -173,7 +173,7 @@ export default function CartPage() {
               
               <div className="wallet-box">
                 <div className="wb-row">
-                  <span>Use Wakefit Cash Amount</span>
+                  <span>Use Sleep Nest Cash Amount</span>
                   <button className="wb-login">Login Now</button>
                 </div>
                 <p>Login to access your wallet to get extra discount</p>

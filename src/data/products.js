@@ -16,7 +16,7 @@ export const mattresses = [
     sizes: ['Single', 'Double', 'Queen', 'King'],
     images: [
       '/videos/mattress_video.mp4',
-      '/images/generated/mattress_performance.jpg', '/images/generated/new_arrival_mattress_card.jpg', '/images/generated/mattress_detail_2.jpg', '/images/generated/mattress_detail_3.jpg',
+      '/images/generated/sleepnest_mattress_card.jpg', '/images/generated/sleepnest_mattress_front.jpg', '/images/generated/sleepnest_mattress_context.jpg', '/images/generated/sleepnest_mattress_layers_carousel.jpg',
     ],
     features: ['Graphene Tech™ for cooler sleep', 'Zoned Layers for Full-Body Contouring', 'Zero Motion Transfer'],
     inStock: true,
@@ -36,7 +36,7 @@ export const mattresses = [
     sizes: ['Single', 'Double', 'Queen', 'King'],
     images: [
       '/videos/mattress_video.mp4',
-      '/images/generated/mattress_hybrid.jpg', '/images/generated/mattress_detail_1.jpg', '/images/generated/mattress_detail_2.jpg', '/images/generated/mattress_detail_3.jpg',
+      '/images/generated/sleepnest_mattress_card.jpg', '/images/generated/sleepnest_mattress_front.jpg', '/images/generated/sleepnest_mattress_context.jpg', '/images/generated/sleepnest_mattress_layers_carousel.jpg',
     ],
     features: ['Hybrid Airgocell® foam + AeroFlex® springs', 'Orthopedic Support for Back Relief', 'Enhanced Airflow for Cooler Sleep'],
     inStock: true,
@@ -56,7 +56,7 @@ export const mattresses = [
     sizes: ['Single', 'Double', 'Queen', 'King'],
     images: [
       '/videos/mattress_video.mp4',
-      '/images/generated/mattress_original.jpg', '/images/generated/pure_luxe_latex_mattress.jpg', '/images/generated/mattress_detail_2.jpg', '/images/generated/mattress_detail_3.jpg',
+      '/images/generated/sleepnest_mattress_card.jpg', '/images/generated/sleepnest_mattress_front.jpg', '/images/generated/sleepnest_mattress_context.jpg', '/images/generated/sleepnest_mattress_layers_carousel.jpg',
     ],
     features: ['Advanced Ortho Foam for Spine Support', 'HALO® Foam for Pressure Relief', 'HRX foam which offers back support'],
     inStock: true,
@@ -76,7 +76,7 @@ export const mattresses = [
     sizes: ['Single', 'Double', 'Queen', 'King'],
     images: [
       '/videos/mattress_video.mp4',
-      'https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=600&q=80',
+      '/images/generated/sleepnest_mattress_card.jpg', '/images/generated/sleepnest_mattress_front.jpg', '/images/generated/sleepnest_mattress_context.jpg', '/images/generated/sleepnest_mattress_layers_carousel.jpg',
     ],
     features: ['Firmness Auto-Adjust Technology', 'Dual-Layer Foam for Durability', 'Orthopedic Support for Deep Sleep'],
     inStock: true,
@@ -97,7 +97,7 @@ export const bedsheets = [
     badge: 'New Arrival',
     sizes: ['Queen', 'King'],
     images: [
-      'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&q=80',
+      '/images/generated/sleepnest_bedsheet.jpg',
     ],
     inStock: true,
   },
@@ -114,7 +114,7 @@ export const bedsheets = [
     badge: 'Bestseller',
     sizes: ['Queen', 'King'],
     images: [
-      'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&q=80',
+      '/images/generated/sleepnest_bedsheet.jpg',
     ],
     inStock: true,
   },
@@ -131,7 +131,7 @@ export const bedsheets = [
     badge: 'Eco Soft',
     sizes: ['Queen', 'King'],
     images: [
-      'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&q=80',
+      '/images/generated/sleepnest_bedsheet.jpg',
     ],
     inStock: true,
   }
@@ -151,7 +151,7 @@ export const protectors = [
     badge: '100% Waterproof',
     sizes: ['Single', 'Double', 'Queen', 'King'],
     images: [
-      'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&q=80',
+      '/images/generated/sleepnest_mattress_protector.jpg',
     ],
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-making-a-bed-with-white-sheets-41585-large.mp4',
     description: 'TPU waterproof membrane shield with quiet cotton terry surface protecting your mattress.',
@@ -172,7 +172,7 @@ export const protectors = [
     badge: 'Cooling Tech',
     sizes: ['Single', 'Double', 'Queen', 'King'],
     images: [
-      'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&q=80',
+      '/images/generated/sleepnest_mattress_protector.jpg',
     ],
     inStock: true,
   },
@@ -189,7 +189,7 @@ export const protectors = [
     badge: 'Extra Plush',
     sizes: ['Double', 'Queen', 'King'],
     images: [
-      'https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=600&q=80',
+      '/images/generated/sleepnest_mattress_protector.jpg',
     ],
     inStock: true,
   },
@@ -206,7 +206,7 @@ export const protectors = [
     badge: '360° Protection',
     sizes: ['Queen', 'King'],
     images: [
-      'https://images.unsplash.com/photo-1505693314120-0d443867891c?w=600&q=80',
+      '/images/generated/sleepnest_mattress_protector.jpg',
     ],
     inStock: true,
   }
@@ -226,7 +226,7 @@ export const comforters = [
     badge: 'Cloud Soft',
     sizes: ['Single', 'Queen/King'],
     images: [
-      'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=600&q=80',
+      '/images/generated/sleepnest_comforter.jpg',
     ],
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-comfort-of-a-clean-and-cozy-bed-41584-large.mp4',
     description: 'Ultra-plush 300 GSM hypoallergenic microfiber fill comforter engineered for all seasons.',
@@ -250,7 +250,7 @@ export const pillows = [
     badge: 'Doctor Recommended',
     sizes: ['Standard', 'King'],
     images: [
-      '/images/generated/product_contour_pillow.jpg',
+      '/images/generated/sleepnest_pillow.jpg',
     ],
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-comfort-of-a-clean-and-cozy-bed-41584-large.mp4',
     description: 'Cervical relief memory foam pillow with temperature-regulating bamboo fabric cover.',
@@ -401,7 +401,7 @@ export const testimonials = [
     id: 1,
     name: 'Priya Sharma',
     location: 'Bangalore',
-    avatar: 'https://i.pravatar.cc/80?img=47',
+    avatar: '/images/generated/customer_1.png',
     rating: 5,
     product: 'SleepNest Ortho Mattress',
     text: 'Best sleep product investment! The SleepNest logo embedded quality is visible and back support is stellar.',
@@ -411,7 +411,7 @@ export const testimonials = [
     id: 2,
     name: 'Rahul Mehta',
     location: 'Mumbai',
-    avatar: 'https://i.pravatar.cc/80?img=12',
+    avatar: '/images/generated/customer_2.png',
     rating: 5,
     product: 'SleepNest Comforter',
     text: 'Super cozy, premium video showcase convinced me and the product exceeded expectations!',
@@ -421,7 +421,7 @@ export const testimonials = [
     id: 3,
     name: 'Anjali Desai',
     location: 'Pune',
-    avatar: 'https://i.pravatar.cc/80?img=32',
+    avatar: '/images/generated/customer_3.png',
     rating: 5,
     product: 'SleepNest Memory Foam Pillow',
     text: 'I used to wake up with neck pain every day. Since switching to this pillow, my sleep has completely transformed.',

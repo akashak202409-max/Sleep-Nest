@@ -129,7 +129,7 @@ export default function PillowPage() {
                 return (
                   <Link to={`/product/${product.id}`} key={product.id} className="plp-product-card">
                     <div className="plp-pc-img-wrap">
-                      <img src={product.images[0]} alt={product.name} />
+                      <img src={product.images.find(img => !img.endsWith('.mp4')) || product.images[0]} alt={product.name} />
                       <div className="plp-discount-tag">
                         <Tag size={10} style={{marginRight: 4, transform: 'scaleX(-1)'}}/> Up to {discount}% off
                       </div>

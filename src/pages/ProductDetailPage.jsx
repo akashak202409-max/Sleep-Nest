@@ -278,7 +278,7 @@ export default function ProductDetailPage() {
         <div className="container">
           <div className="perks-header">
             <span className="sparkle">✦</span>
-            <h2><span style={{color: '#5c38c9', fontWeight: 800}}>Exclusive</span> purchase perks only at <span style={{color: '#5c38c9', fontWeight: 800}}>Wakefit.co</span></h2>
+            <h2><span style={{color: '#5c38c9', fontWeight: 800}}>Exclusive</span> purchase perks only at <span style={{color: '#5c38c9', fontWeight: 800}}>Sleep Nest</span></h2>
             <span className="sparkle">✦</span>
           </div>
           
@@ -296,7 +296,7 @@ export default function ProductDetailPage() {
                 <thead>
                   <tr>
                     <th>Benefits</th>
-                    <th className="highlight-col">Wakefit.co & Stores</th>
+                    <th className="highlight-col">Sleep Nest & Stores</th>
                     <th>Other Platforms</th>
                   </tr>
                 </thead>
@@ -336,66 +336,9 @@ export default function ProductDetailPage() {
       {/* ── MATTRESS LAYERS SECTION ──────────────────────────────── */}
       <div className="pdp-mattress-layers-section">
         <div className="container">
-          <h2 className="layers-title">Mattress Layers</h2>
-          
-          <div className="layers-top-grid">
-            <div className="layers-img-box">
-              <img src="/images/generated/mattress_layers_3d.jpg" alt="Mattress Layers 3D" />
-            </div>
-            <div className="layers-list-box">
-              <div className="layer-item">
-                <div className="layer-num">1</div>
-                <div className="layer-text">
-                  <h4>Cloud Rest</h4>
-                  <p>Reduces stress on hips, shoulders, and joints</p>
-                </div>
-              </div>
-              <div className="layer-item">
-                <div className="layer-num">2</div>
-                <div className="layer-text">
-                  <h4>Luxe Layer</h4>
-                  <p>Maintains Spinal Alignment</p>
-                </div>
-              </div>
-              <div className="layer-item">
-                <div className="layer-num">3</div>
-                <div className="layer-text">
-                  <h4>Air Flow Quilted Base</h4>
-                  <p>Breathable, Airy, Stable base</p>
-                </div>
-              </div>
-              <div className="layer-item">
-                <div className="layer-num">4</div>
-                <div className="layer-text">
-                  <h4>EdgeShield Technology Foam Encasement</h4>
-                  <p>Reinforced foam border that prevents edge sagging and maximizes the usable sleep area.</p>
-                </div>
-              </div>
-              <div className="layer-item">
-                <div className="layer-num">5</div>
-                <div className="layer-text">
-                  <h4>GermanLuxe Technology Precision Pocket Springs</h4>
-                  <p>Individually wrapped springs that provide targeted body support and minimize partner disturbance.</p>
-                </div>
-              </div>
-              <div className="layer-item">
-                <div className="layer-num">6</div>
-                <div className="layer-text">
-                  <h4>Latex Copper Infused Tech</h4>
-                  <p>Pressure-relieving, Antimicrobial, and recovery-enhancing power of copper</p>
-                </div>
-              </div>
-              <div className="layer-item">
-                <div className="layer-num">7</div>
-                <div className="layer-text">
-                  <h4>Skin Safe Fabric</h4>
-                  <p>Dermatologist-Tested & Hypoallergenic</p>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div className="layers-bottom-grid">
+
+<div className="layers-bottom-grid">
             <div className="layers-info-box">
               <div className="layers-badge">Pocket Spring Mattress</div>
               <h3>Zero Partner Disturbance For Deeper, Undisrupted Sleep</h3>
@@ -581,7 +524,7 @@ export default function ProductDetailPage() {
           
           <div className="ts-text-quote">
             <h4>Ajay | IT Professional</h4>
-            <p>"Mine is a rural place. Every parcel takes a long time to deliver. But in Wakefit's case, it was delivered in only a few days."</p>
+            <p>"Mine is a rural place. Every parcel takes a long time to deliver. But in Sleep Nest's case, it was delivered in only a few days."</p>
           </div>
         </div>
       </div>
@@ -620,8 +563,8 @@ export default function ProductDetailPage() {
             
             <div className="vm-content">
               <div className="vm-product-preview">
-                <img src={product.images[0]} alt="" />
-                <span>Wakefit ShapeSense Orthopedic Classic Memory Foam Mattress | 10 Years Warranty</span>
+                <img src={product.images.find(img => !img.endsWith('.mp4')) || product.images[0]} alt="" />
+                <span>Sleep Nest ShapeSense Orthopedic Classic Memory Foam Mattress | 10 Years Warranty</span>
               </div>
               
               <div className="vm-video-banner">

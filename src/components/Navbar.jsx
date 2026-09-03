@@ -44,7 +44,7 @@ const Navbar = ({ cartCount, onCartClick, onProfileClick, onShopClick, onCategor
         items: ["King Size", "Queen Size", "Single Bed", "Kids Mattress"]
       },
       {
-        title: "Wakefit PureSleep Mattress",
+        title: "Sleep Nest PureSleep Mattress",
         items: [
           "PostureFlex PureSleep Mattress",
           "DualSwitch PureSleep Mattress",

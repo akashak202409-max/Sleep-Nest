@@ -62,27 +62,27 @@ const categoryBanners = [
   {
     title: 'Mattress',
     path: '/mattress',
-    image: '/images/generated/mattress_hero_ai.jpg',
+    image: '/images/generated/sleepnest_mattress_card.jpg',
   },
   {
     title: 'Bedsheet',
     path: '/bedsheet',
-    image: '/images/generated/category_bedsheet_stack.jpg',
+    image: '/images/generated/sleepnest_bedsheet.jpg',
   },
   {
     title: 'Protector',
     path: '/protector',
-    image: '/images/generated/protector_category.png',
+    image: '/images/generated/sleepnest_mattress_protector.jpg',
   },
   {
     title: 'Comforter',
     path: '/comforter',
-    image: '/images/generated/comforter_hero.jpg',
+    image: '/images/generated/sleepnest_comforter.jpg',
   },
   {
     title: 'Pillow',
     path: '/pillow',
-    image: '/images/generated/pillow_hero_ai.jpg',
+    image: '/images/generated/sleepnest_pillow.jpg',
   },
 ];
 

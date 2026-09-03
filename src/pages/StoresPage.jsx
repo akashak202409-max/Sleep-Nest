@@ -37,7 +37,7 @@ const faqs = [
   },
   { q: 'What are the bed sizes you have?', a: 'We have Single, Diwan, Queen, and King sizes available for you to test out at all our experience centers.' },
   { q: 'Does the store have emi/cash option?', a: 'Yes, we provide flexible No Cost EMI options and accept cash, UPI, and card payments at all stores.' },
-  { q: 'Is the store owned by Wakefit directly?', a: 'Yes, all our 122+ stores are company-owned and operated to ensure the highest quality experience.' },
+  { q: 'Is the store owned by Sleep Nest directly?', a: 'Yes, all our 122+ stores are company-owned and operated to ensure the highest quality experience.' },
   { q: 'Is there additional discount if I buy at the store?', a: 'Our online and offline prices are exactly the same. However, stores might run exclusive weekend bundled offers.' },
   { q: 'Do you have EMI options?', a: 'Yes, we offer up to 6 months No Cost EMI through all major credit cards and Bajaj Finserv.' },
   { q: 'Do you deliver across India?', a: 'Yes, we deliver to 19000+ pin codes across India directly from our factory to your doorstep.' },
@@ -63,13 +63,13 @@ export default function StoresPage() {
           <div className="stores-hero-text">
             <h1>Dream homes to sweet dreams In store for you!</h1>
           </div>
-          <img src="/images/generated/store_hero.png" alt="Wakefit Store" onError={(e) => e.target.style.display = 'none'} style={{ height: '250px', borderRadius: '12px' }}/>
+          <img src="/images/generated/store_hero.png" alt="Sleep Nest Store" onError={(e) => e.target.style.display = 'none'} style={{ height: '250px', borderRadius: '12px' }}/>
         </div>
       </section>
 
       {/* Counter */}
       <section className="stores-counter-section">
-        <h2>Wakefit Stores now in <span>122 cities</span></h2>
+        <h2>Sleep Nest Stores now in <span>122 cities</span></h2>
       </section>
 
       <main className="stores-main">
@@ -101,7 +101,7 @@ export default function StoresPage() {
 
         {/* Benefits */}
         <section className="stores-benefits-section">
-          <h3>Why should you visit Wakefit stores?</h3>
+          <h3>Why should you visit Sleep Nest stores?</h3>
           <p className="stores-benefits-subtitle">Visit us for the best store experience in town</p>
           <button className="stores-locate-btn">Find a store near you</button>
           
