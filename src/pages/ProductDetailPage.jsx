@@ -828,6 +828,19 @@ export default function ProductDetailPage() {
         </div>
       )}
 
+
+      {/* ── MOBILE STICKY BOTTOM BAR ── */}
+      <div className="pdp-mobile-sticky-bar mobile-only">
+        <div className="sticky-bar-price">
+          <span className="sb-price">₹{product.price.toLocaleString()}</span>
+          <span className="sb-mrp">₹{(product.originalPrice || Math.round(product.price * 1.6)).toLocaleString()}</span>
+        </div>
+        <button className="btn-add-to-cart" onClick={handleAddToCart}>
+          <ShoppingCart size={18}/> Add to Cart
+        </button>
+      </div>
+
     </div>
   );
 }
+
